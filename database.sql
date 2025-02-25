@@ -57,3 +57,57 @@ CREATE TRIGGER on_user_update
 BEFORE UPDATE ON "user"
 FOR EACH ROW
 EXECUTE PROCEDURE set_updated_at_to_now();
+
+
+
+---My database code---
+ 
+-- OPPS STARTING OVER...
+--DROP TABLE "user" CASCADE;
+--DROP TABLE "item" CASCADE;
+--DROP TABLE "found" CASCADE;
+ 
+    CREATE TABLE "user" (
+  "id" SERIAL,
+  "username" VARCHAR (80) UNIQUE NOT NULL,
+  "password" VARCHAR (1000) NOT NULL,
+  "inserted_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
+  "updated_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
+  "is_admin" BOOLEAN NOT NULL DEFAULT FALSE
+);
+ALTER TABLE
+    "user" ADD PRIMARY KEY("id");
+ALTER TABLE
+    "user" ADD CONSTRAINT "user_username_unique" UNIQUE("username");
+CREATE TABLE "item"(
+    "id" SERIAL NOT NULL,
+    "name" VARCHAR(255) NOT NULL,
+    "description" VARCHAR(500) NOT NULL,
+    "is_favorite" BOOLEAN NOT NULL DEFAULT '0',
+    "found" VARCHAR(300) NOT NULL,
+    "season" VARCHAR(255) NOT NULL,
+    "uses" VARCHAR(2000) NOT NULL,
+    "photo" VARCHAR(255) NOT NULL,
+    "nutrition" VARCHAR(350) NOT NULL,
+    "shelf_life" VARCHAR(150) NOT NULL,
+    "harvesting" VARCHAR(450) NOT NULL,
+    "imposters" VARCHAR(65) NOT NULL,
+    "category" VARCHAR(25) NOT NULL
+);
+ALTER TABLE
+    "item" ADD PRIMARY KEY("id");
+CREATE TABLE "found"(
+    "id" SERIAL NOT NULL,
+    "item_id" INTEGER NOT NULL,
+    "found_date" DATE NOT NULL,
+    "location" VARCHAR(255) NOT NULL,
+    "description" VARCHAR(1000) NOT NULL,
+    "photo" VARCHAR(255) NOT NULL,
+    "user_id" INTEGER NOT NULL
+);
+ALTER TABLE
+    "found" ADD PRIMARY KEY("id");
+ALTER TABLE
+    "found" ADD CONSTRAINT "found_item_id_foreign" FOREIGN KEY("item_id") REFERENCES "item"("id");
+ALTER TABLE
+    "found" ADD CONSTRAINT "found_user_id_foreign" FOREIGN KEY("user_id") REFERENCES "user"("id");

@@ -12,7 +12,7 @@ Before you get started, make sure you have the following software installed on y
 
 ## Create Database and User Table
 
-Create a new database, then create a `user` table using the query found in `database.sql`.
+- Create a new database, then create a `user` table using the query found in `database.sql`.
 
 * Note: `pool.js` is initially configured to connect to a database named `eda_solo_project`. If you choose your own name, you'll need to modify `pool.js` so it knows how to connect to your database.
 
