@@ -53,9 +53,9 @@ For example, you're going to need to create new React Routes and Nav links as yo
 
 
 ## Don't Forget to Update the Documentation
-
+!!!!!!!!!!!!!!!
 Don't forget to refactor this README file, as well as *the code comments in this project*, to read less like a starter repo and more like a finished project.
-
+!!!!!!!!
 ## Have Fun
 
 Remember. This is only a two-week sprint! The goal is to:

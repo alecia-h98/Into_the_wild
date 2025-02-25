@@ -27,6 +27,8 @@ function LoginPage() {
 
   return (
     <>
+      <h1>Into the Wild</h1>
+      <p>Discover your surroundings.</p>
       <h2>Login Page</h2>
       <form onSubmit={handleLogIn}>
         <label htmlFor="username">Username:</label>
