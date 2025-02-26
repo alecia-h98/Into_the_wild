@@ -50,6 +50,25 @@ on item.id = found.item_id;
      })
 });
 
+//the route for the specific found item and it's details
+router.get('/:itemId', (req, res) => {
+    const query = `
+select found.id, found.found_date, found.description, found.item_id, found.location, found.photo, found.user_id, item.name
+from item
+join found
+on item.id = found.item_id
+where found.id = $1;
+    `;
+    pool.query(query, [req.params.itemId])
+     .then(result => {
+        res.send(result.rows);
+     })
+     .catch(err =>  {
+        console.log(`Error grabbing favorites`, err);
+        res.sendStatus(500);
+     })
+});
+
 
 //DELETE POST FROM FOUND LIST
 router.delete('/:foundId', (req, res) => {
