@@ -9,6 +9,7 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import FoundItemsList from "../Found Items/FoundItemsList";
 import Tips_Guidelines from "../Tips_Guidelines/Tips_Guidelines";
 import FoundItem from "../FoundItem/FoundItem";
+import Category from "../Category/Category";
 
 function App() {
   const user = useStore((state) => state.user);
@@ -61,6 +62,8 @@ function App() {
           <Route path='/tips_guidelines' element={<Tips_Guidelines/>}/>
           <Route path='/found' element={<FoundItemsList />} />
           <Route path='/found/:itemId' element={<FoundItem />} />
+          <Route path='/items' element={<Category />} />
+
           <Route
             path="/about"
             element={

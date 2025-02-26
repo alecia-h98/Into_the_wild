@@ -32,6 +32,9 @@ function Nav() {
             <li>
               <NavLink to="/tips_guidelines">Tips & Guidelines</NavLink>
             </li>
+            <li>
+              <NavLink to="/items">Categories</NavLink>
+            </li>
           </>
         )
       }
