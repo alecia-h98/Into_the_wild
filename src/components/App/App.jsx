@@ -10,6 +10,7 @@ import FoundItemsList from "../Found Items/FoundItemsList";
 import Tips_Guidelines from "../Tips_Guidelines/Tips_Guidelines";
 import FoundItem from "../FoundItem/FoundItem";
 import Category from "../Category/Category";
+import Favorites from "../Favorites/Favorites";
 
 function App() {
   const user = useStore((state) => state.user);
@@ -24,7 +25,7 @@ function App() {
   return (
     <>
       <header>
-        <h1>EDA Solo Project</h1>
+        <h1>Into the Wild</h1>
         <Nav />
       </header>
       <main>
@@ -63,6 +64,7 @@ function App() {
           <Route path='/found' element={<FoundItemsList />} />
           <Route path='/found/:itemId' element={<FoundItem />} />
           <Route path='/items' element={<Category />} />
+          <Route path='/favorites' element={<Favorites />} />
 
           <Route
             path="/about"

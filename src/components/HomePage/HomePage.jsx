@@ -7,11 +7,10 @@ function HomePage() {
 
   return (
     <>
-      <h1>Into the Wild</h1>
       <h2>Main Menu</h2>
-      <h3>Welcome Back!</h3>
-      <p>Your username is: {user .username}</p>
-      <p>Your ID is: {user.id}</p>
+      <h3>Welcome Back {user.username}!</h3>
+      {/* <p>Your username is: {user .username}</p>
+      <p>Your ID is: {user.id}</p> */}
       <button onClick={logOut}>
         Log Out
       </button>

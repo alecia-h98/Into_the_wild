@@ -27,13 +27,16 @@ function Nav() {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/found">Found Items Page</NavLink>
+              <NavLink to="/favorites">Favorites</NavLink>
             </li>
             <li>
-              <NavLink to="/tips_guidelines">Tips & Guidelines</NavLink>
+              <NavLink to="/found">Found Items</NavLink>
             </li>
             <li>
               <NavLink to="/items">Categories</NavLink>
+            </li>
+            <li>
+              <NavLink to="/tips_guidelines">Tips & Guidelines</NavLink>
             </li>
           </>
         )
