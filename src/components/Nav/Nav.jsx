@@ -29,6 +29,9 @@ function Nav() {
             <li>
               <NavLink to="/found">Found Items Page</NavLink>
             </li>
+            <li>
+              <NavLink to="/tips_guidelines">Tips & Guidelines</NavLink>
+            </li>
           </>
         )
       }
