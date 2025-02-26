@@ -60,7 +60,7 @@ router.get('/:itemId', (req, res) => {
 
 //GRABBING THE FAVORITES LIST
 //MAKE SURE IT IS PULLING THE LOG IN USER'S FAVORITE ITEMS
-router.get('/favorites', rejectUnauthenticated, (req, res) => {
+router.get('/favorites', (req, res) => {
     const query = `
     SELECT "id", "name", "is_favorite"
     FROM "item"
@@ -76,14 +76,19 @@ router.get('/favorites', rejectUnauthenticated, (req, res) => {
     })  
 });
 
-//PUT ROUTE TO SWITCH AN ITEM'S FAVORITE KEY
-//MAKE SURE TO INCLUDE THE REQ.USER WHEN WRITING THIS
-// router.put('/favorites/:id', (req, res) => {
-//     const query = `
-//     UPDATE
-//     `
-
-// })
-
+// PUT ROUTE TO SWITCH AN ITEM'S FAVORITE KEY
+//dont think this is right
+// MAKE SURE TO INCLUDE THE REQ.USER WHEN WRITING THIS
+router.put('/favorites/:favId', (req, res) => {
+    const sqlText = `
+    UPDATE "item" SET "is_favorite" = NOT "is_favorite" WHERE id= $1 RETURNING *;
+    `;
+    pool.query(sqlText, [req.params.favId]).then((result) => {
+        res.send(result.rows);
+    }).catch(err => {
+        res.sendStatus(500);
+        console.error(err);
+    })
+});
 
 module.exports = router;

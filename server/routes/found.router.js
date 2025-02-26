@@ -18,25 +18,44 @@ const router = express.Router();
 //     });
 // });
 
+// router.post('/', (req, res) => {
+//     const { description, file_url, file_type } = req.body;
+//     const queryText = 'INSERT INTO "uploads" (description, file_url, file_type) VALUES ($1, $2, $3);';
+//     pool.query(queryText, [description, file_url, file_type])
+//       .then(() => res.sendStatus(201))
+//       .catch((err) => {
+//         console.log(err);
+//         res.sendStatus(500)
+//       });
+//   });
 
 //GET FOUND LIST
 //MAKE SURE THIS RETURNS A SPECIFIC PERSON'S LIST AND NOT ALL OF THE LISTS
-router.get('/', rejectUnauthenticated, (req, res) => {
+router.get('/', (req, res) => {
     const query = `
     SELECT * FROM "found";
     `;
-    pool.query(query,[req.user.id, req.query])
+    pool.query(query)
      .then(result => {
         res.send(result.rows);
      })
-     .catch(err => {
+     .catch(err =>  {
         console.log(`Error grabbing favorites`, err);
-        res.sendStatus(500);
+        res.sendStatus(500)
      })
 });
 
 
 //DELETE POST FROM FOUND LIST
-
+router.delete('/:foundId', (req, res) => {
+    console.log('req.params', req.params);
+    const queryText = `DELETE FROM "found" WHERE "id" = $1;`;
+    pool.query(queryText, [req.params.foundId]).then((result) => {
+        res.sendStatus(204);
+    }).catch(err=> {
+        res.sendStatus(500);
+        console.error(err);
+    })
+});
 
 module.exports = router;
