@@ -6,6 +6,19 @@ import axios from 'axios';
 axios.defaults.withCredentials = true;
 
 const createFoundSlice = (set, get) => ({
+    foundItems: [],
+    fetchFoundItems: async () => {
+        //axios GET our found items from db
+        try {
+            const response = await axios.get('/api/found');
+            set({ foundItems: response.data });
+        } catch (error) {
+            console.log('error fetching found items');
+            
+        }
+        
+
+    }
 
 
 
