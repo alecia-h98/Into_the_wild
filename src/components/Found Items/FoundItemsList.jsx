@@ -1,6 +1,6 @@
 import React from "react"
 import useStore from "../../zustand/store";
-import FoundItem from "../FoundItem/FoundItem";
+// import FoundItem from "../FoundItem/FoundItem";
 import { useNavigate } from "react-router-dom";
 
 function FoundItemsList() {
@@ -27,7 +27,6 @@ function FoundItemsList() {
           );
         })}
       </section>
-      {/* {foundItems?.map((item) => <FoundItem key={item.id} item={item}/>)} */}
     </div>
   )
 };
