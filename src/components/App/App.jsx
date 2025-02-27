@@ -9,7 +9,7 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import FoundItemsList from "../Found Items/FoundItemsList";
 import Tips_Guidelines from "../Tips_Guidelines/Tips_Guidelines";
 import FoundItem from "../FoundItem/FoundItem";
-import Category from "../Category/Category";
+import Category from "../Categories/Categories";
 import Favorites from "../Favorites/Favorites";
 
 function App() {

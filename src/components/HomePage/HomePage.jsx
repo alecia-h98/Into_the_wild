@@ -8,7 +8,7 @@ function HomePage() {
   return (
     <>
       <h2>Main Menu</h2>
-      <h3>Welcome Back {user.username}!</h3>
+      <h3>Welcome Back {user.name}!</h3>
       {/* <p>Your username is: {user .username}</p>
       <p>Your ID is: {user.id}</p> */}
       <button onClick={logOut}>
