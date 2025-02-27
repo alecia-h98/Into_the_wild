@@ -26,6 +26,7 @@ function Category(props) {
             </div>
           );
         })}
+        
       </section>
     </div>
   )
