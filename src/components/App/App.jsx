@@ -15,12 +15,15 @@ import Favorites from "../Favorites/Favorites";
 function App() {
   const user = useStore((state) => state.user);
   const fetchUser = useStore((state) => state.fetchUser);
-  const fetchFoundItems = useStore((state) => state.fetchFoundItems)
+  const fetchFoundItems = useStore((state) => state.fetchFoundItems);
+  const fetchList = useStore((state) => state.fetchList);
+
 
   useEffect(() => {
     fetchUser();
     fetchFoundItems();
-  }, [fetchUser]);
+    fetchList();
+  }, [fetchUser, fetchFoundItems, fetchList]);
 
   return (
     <>
