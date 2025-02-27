@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 //grabbing by specific category
 router.get('/:category', (req,res) => {
     const query = `
-    SELECT "id", "name", "description", "is_favorite", "found", "season", "uses", "photo", "nutrition", "shelf_life", "harvesting", "imposters", "category"
+    SELECT "id", "name", "description", "found", "season", "uses", "photo", "nutrition", "shelf_life", "harvesting", "imposters", "category"
     FROM "item"
     WHERE "category" = $1;
     `;
@@ -43,7 +43,7 @@ router.get('/:category', (req,res) => {
 //getting a specific item from the specified category list
 router.get('/:itemId', (req, res) => {
     const query = `
-    SELECT "id", "name", "description", "is_favorite", "found", "season", "uses", "photo", "nutrition", "shelf_life", "harvesting", "imposters", "category"
+    SELECT "id", "name", "description", "found", "season", "uses", "photo", "nutrition", "shelf_life", "harvesting", "imposters", "category"
     FROM "item"
     WHERE "id" = $1;
     `;
@@ -61,21 +61,25 @@ router.get('/:itemId', (req, res) => {
 
 //GRABBING THE FAVORITES LIST
 //MAKE SURE IT IS PULLING THE LOG IN USER'S FAVORITE ITEMS
-// router.get('/favorites', (req, res) => {
-//     const query = `
-//     SELECT "id", "name", "is_favorite"
-//     FROM "item"
-//     WHERE "is_favorite" = TRUE ;
-//     `;
-//     pool.query(query,[req.user.id])
-//     .then(result => {
-//       res.send(result.rows);
-//     })
-//     .catch(err => {
-//       console.log('Error:', err);
-//       res.sendStatus(500);
-//     })  
-// });
+router.get('/favorites', (req, res) => {
+    const query = `
+SELECT "user"."id", "item"."id", "user_item"."is_favorited"
+from "item"
+join "user_item"
+on "item"."id" = "user_item"."item_id"
+JOIN "user"
+on "user_item"."user_id" = "user"."id"
+WHERE "user_item"."is_favorited" = TRUE;
+    `;
+    pool.query(query,[req.user.id])
+    .then(result => {
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('Error:', err);
+      res.sendStatus(500);
+    })
+});
 
 // PUT ROUTE TO SWITCH AN ITEM'S FAVORITE KEY
 //dont think this is right
