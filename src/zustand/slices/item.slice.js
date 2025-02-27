@@ -7,6 +7,21 @@ axios.defaults.withCredentials = true;
 
 
 const createItemSlice = (set, get) => ({
+    categories: [],
+    fetchCategories: async () => {
+        try {
+            const response = await axios.get('api/items');
+            set({categories: response.data});
+        } catch (error) {
+            console.log('Error fetching items');
+        }
+
+
+
+
+
+
+    }
 
 
 

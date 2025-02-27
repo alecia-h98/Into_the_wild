@@ -5,6 +5,7 @@ import useStore from '../../zustand/store';
 function RegisterPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [nameinput, setNameInput] = useState('');
   const register = useStore((state) => state.register)
   const errorMessage = useStore((state) => state.authErrorMessage);
   const setAuthErrorMessage = useStore((state) => state.setAuthErrorMessage);
@@ -20,6 +21,7 @@ function RegisterPage() {
     event.preventDefault();
 
     register({
+      name: nameinput,
       username: username,
       password: password,
     })
@@ -29,6 +31,14 @@ function RegisterPage() {
     <>
       <h2>Register Page</h2>
       <form onSubmit={handleRegister}>
+      <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          required
+          value={nameinput}
+          onChange={(e) => setNameInput(e.target.value)}
+        />
         <label htmlFor="username">Username:</label>
         <input
           type="text"
