@@ -2,14 +2,14 @@ import React from "react"
 import useStore from "../../zustand/store";
 import { useNavigate } from "react-router-dom";
 
-function Category(props) {
+function Categories(props) {
   const categories = useStore((state) => state.categories);
   const navigate = useNavigate();
 
   //handleClick to nagivate them to the category list pages
   const handleClick = (event) => {
     const category = event.target.parentElement.id;
-    navigate(`/item/${category}`)
+    navigate(`/items/${category}`)
   }
 
 
@@ -32,5 +32,5 @@ function Category(props) {
   )
 };
 
-export default Category;
+export default Categories;
 <h1>Category Page</h1>

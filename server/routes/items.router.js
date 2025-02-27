@@ -1,7 +1,7 @@
 const express = require('express');
 const pool = require('../modules/pool');
 //const axios = 
-const rejectUnauthenticated = require('../modules/authentication-middleware');
+const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 const router = express.Router();
 
@@ -69,7 +69,7 @@ join "user_item"
 on "item"."id" = "user_item"."item_id"
 JOIN "user"
 on "user_item"."user_id" = "user"."id"
-WHERE "user_item"."is_favorited" = TRUE;
+WHERE "user_item"."user_id" = $1 AND "user_item"."is_favorited" = TRUE;
     `;
     pool.query(query,[req.user.id])
     .then(result => {
@@ -84,16 +84,16 @@ WHERE "user_item"."is_favorited" = TRUE;
 // PUT ROUTE TO SWITCH AN ITEM'S FAVORITE KEY
 //THIS IS WRONG. ASK ABOUT IT
 // MAKE SURE TO INCLUDE THE REQ.USER WHEN WRITING THIS
-// router.put('/favorites/:favId', (req, res) => {
-//     const sqlText = `
-//     UPDATE "user_item" SET "is_favorited" = NOT "is_favorited" WHERE "item_id"=$1 RETURNING *;
-//     `;
-//     pool.query(sqlText, [req.params.favId]).then((result) => {
-//         res.send(result.rows);
-//     }).catch(err => {
-//         res.sendStatus(500);
-//         console.error(err);
-//     })
-// });
+router.put('/favorites/:favId', rejectUnauthenticated, (req, res) => {
+    const sqlText = `
+    UPDATE "user_item" SET "is_favorited" = NOT "is_favorited" WHERE "item_id"a=$1 RETURNING *;
+    `;
+    pool.query(sqlText, [req.params.favId]).then((result) => {
+        res.send(result.rows);
+    }).catch(err => {
+        res.sendStatus(500);
+        console.error(err);
+    })
+});
 
 module.exports = router;
