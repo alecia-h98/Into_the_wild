@@ -7,22 +7,30 @@ axios.defaults.withCredentials = true;
 
 
 const createItemSlice = (set, get) => ({
-    categories: [],
-    fetchCategories: async () => {
+    itemsList: [],
+
+    fetchList: async () => {
         try {
-            const response = await axios.get('api/items');
-            set({categories: response.data});
+            const response = await axios.get('/api/items');
+            set({ itemsList: response.data });
         } catch (error) {
             console.log('Error fetching items');
         }
+    },
 
 
 
+    //favorites page info
+    favorites: [],
 
-
-
+    fetchFavorites: async () => {
+        try {
+            const response = await axios.get('api/items/favorites');
+            set ({favorites: response.data});
+        } catch (error) {
+            console.log('Error fetching favorites list');
+        }
     }
-
 
 
 

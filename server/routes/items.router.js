@@ -5,18 +5,17 @@ const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 const router = express.Router();
 
-//getting all items by catagory - main category page
+//getting all items - main category page
 router.get('/', (req, res) => {
     const query = `
-    SELECT * FROM "item"
-    ORDER BY "category";
+    SELECT * FROM "item";
     `;
     pool.query(query)
     .then(result => {
         res.send(result.rows);
     })
     .catch(err => {
-        console.log('ERROR: items not selected based off of their catagory(backend)', err);
+        console.log('ERROR: cannot render item list', err);
         res.sendStatus(500);
     })
 });
@@ -84,16 +83,17 @@ WHERE "user_item"."user_id" = $1 AND "user_item"."is_favorited" = TRUE;
 // PUT ROUTE TO SWITCH AN ITEM'S FAVORITE KEY
 //THIS IS WRONG. ASK ABOUT IT
 // MAKE SURE TO INCLUDE THE REQ.USER WHEN WRITING THIS
-router.put('/favorites/:favId', rejectUnauthenticated, (req, res) => {
-    const sqlText = `
-    UPDATE "user_item" SET "is_favorited" = NOT "is_favorited" WHERE "item_id"a=$1 RETURNING *;
-    `;
-    pool.query(sqlText, [req.params.favId]).then((result) => {
-        res.send(result.rows);
-    }).catch(err => {
-        res.sendStatus(500);
-        console.error(err);
-    })
-});
+// router.put('/favorites/:favId', rejectUnauthenticated, (req, res) => {
+//     const sqlText = `
+//     UPDATE "user_item" SET "is_favorited" = NOT "is_favorited"
+//     WHERE "item_id" a=$1 RETURNING *;
+//     `;
+//     pool.query(sqlText, [req.params.favId]).then((result) => {
+//         res.send(result.rows);
+//     }).catch(err => {
+//         res.sendStatus(500);
+//         console.error(err);
+//     })
+// });
 
 module.exports = router;
