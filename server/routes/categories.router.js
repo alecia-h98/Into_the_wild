@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/c/:categoryId', (req, res) => {
+router.get('/:categoryId', (req, res) => {
     const query = `
   SELECT category.id, category.name, item.category_id, item.id, item.name
     FROM category

@@ -19,6 +19,7 @@ function App() {
   const fetchFoundItems = useStore((state) => state.fetchFoundItems);
   const fetchCategories = useStore((state) => state.fetchCategories);
   const fetchCategoryList = useStore((state) => state.fetchCategoryList);
+  const fetchFavorites = useStore((state) => state.fetchFavorites);
 
 
 
@@ -27,7 +28,8 @@ function App() {
     fetchFoundItems();
     fetchCategories();
     fetchCategoryList();
-  }, [fetchUser, fetchFoundItems, fetchCategories, fetchCategoryList]);
+    fetchFavorites();
+  }, [fetchUser, fetchFoundItems, fetchCategories, fetchCategoryList, fetchFavorites]);
 
   return (
     <>
@@ -72,7 +74,7 @@ function App() {
           <Route path='/found/:itemId' element={<FoundItem />} />
           <Route path='/items' element={<Category />} />
           <Route path='/favorites' element={<Favorites />} />
-          <Route path='/categories/c/:categoryId' element={<CategoriesLists />} />
+          <Route path='/categories/:categoryId' element={<CategoriesLists />} />
 
           <Route
             path="/about"

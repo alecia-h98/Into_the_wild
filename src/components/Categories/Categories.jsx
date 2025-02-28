@@ -12,7 +12,7 @@ console.log(categories);
   // handleClick to nagivate them to the category list pages
   const handleClick = (event) => {
     const categoryId = event.target.id;
-    navigate(`/categories/c/${categoryId}`);
+    navigate(`/categories/${categoryId}`);
   }
 
  

@@ -140,7 +140,7 @@ INSERT INTO "item"
     ("name", "description", "found", "season", "uses", "photo", "nutrition", "shelf_life", "harvesting", "imposters", "category_id") 
 VALUES 
     ('Dandelion', 'A common plant with jagged leaves and bright yellow flowers that turn into seed puffs.', 'Found in fields, lawns, and roadsides.', 'Best harvested in early spring.', 'Used in salads, teas, and herbal remedies.', '', 'Rich in vitamins A, C, and K.', 'Use within a few days fresh; dried roots last months.', 'Harvest young leaves before flowering.', 'Catsear (Hypochaeris radicata)', 1),
-    ('Morel', 'A prized wild mushroom with a honeycomb-like cap and hollow interior.', 'Near dead or decaying trees in forests.', 'Spring, after rainfall.', 'Used in gourmet dishes, soups, and sauces.', '', 'High in vitamin D and antioxidants.', 'Best consumed fresh within 4 days or dried for long-term storage.', 'Soak and rinse thoroughly before cooking.', 'False morels (Gyromitra spp.)', 1,
+    ('Morel', 'A prized wild mushroom with a honeycomb-like cap and hollow interior.', 'Near dead or decaying trees in forests.', 'Spring, after rainfall.', 'Used in gourmet dishes, soups, and sauces.', '', 'High in vitamin D and antioxidants.', 'Best consumed fresh within 4 days or dried for long-term storage.', 'Soak and rinse thoroughly before cooking.', 'False morels (Gyromitra spp.)', 1),
     ('Chokecherry', 'A small tree with dark red to black berries growing in clusters.', 'Found along rivers and open fields.', 'Berries ripen in late summer.', 'Used for jams, jellies, and syrups.', '', 'Rich in antioxidants and vitamin C.', 'Fresh berries last up to 2 weeks; preserves last months.', 'Harvest by hand when berries turn dark.', 'Prunus serotina (Black Cherry)', 3),
     ('Stinging Nettle', 'A tall, leafy plant with serrated edges and tiny stinging hairs.', 'Grows in moist, rich soil near streams and fields.', 'Early spring to late summer.', 'Used in teas, soups, and medicinal extracts.', '', 'High in iron, calcium, and vitamin A.', 'Fresh lasts 1 week; dried lasts months.', 'Use gloves when harvesting; pick young tops.', 'Dead-nettle (Lamium spp.)', 4),
     ('Sunflower Seeds', 'Large yellow flowers with edible seeds in the center.', 'Grown in fields and gardens.', 'Late summer to early fall.', 'Eaten raw, roasted, or pressed for oil.', '', 'Rich in vitamin E and healthy fats.', 'Fresh seeds last 1-2 weeks; dried up to a year.', 'Harvest when flower heads droop and seeds loosen.', 'N/A', 5),
@@ -165,3 +165,7 @@ INSERT INTO "user_item" ("user_id", "item_id") VALUES
     (1, 6),
     (1, 8),
     (1, 3);
+INSERT INTO "user_item" ("user_id", "item_id") VALUES
+    (2, 6),
+    (2, 4),
+    (2, 7);
