@@ -18,4 +18,22 @@ router.get('/', (req, res) => {
     })
 });
 
+router.get('/:categoryId', (req, res) => {
+    const query = `
+  SELECT category.id, category.name, item.category_id, item.id, item.name
+    FROM category
+    join item
+    on category.id = item.category_id
+    WHERE category.id = $1;
+    `;
+    pool.query(query,[req.params.categoryId])
+      .then(result => {
+        res.send(result.rows);
+      })
+      .catch(err => {
+        console.log('Error:', err);
+        res.sendStatus(500);
+      })
+  });
+
 module.exports = router;

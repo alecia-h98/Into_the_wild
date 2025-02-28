@@ -1,20 +1,21 @@
 import React from "react"
 import useStore from "../../zustand/store";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Categories() {
   const categories = useStore((state) => state.categories);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
 console.log(categories);
+
+
   // handleClick to nagivate them to the category list pages
-  // const handleClick = (event) => {
-  //   navigate(`/categories/`)
+  const handleClick = (event) => {
+    const categoryId = event.target.id;
+    navigate(`/categories/${categoryId}`);
+  }
 
-  // }
-
-  //add to category button
-  // onClick={handleClick}
+ 
 
 
   return (
@@ -24,7 +25,7 @@ console.log(categories);
         {categories?.map((category) => {
           return (
             <div key={category.id} id={category.id}>
-              <button>{category.name}</button>
+              <button onClick={handleClick}>{category.name}</button>
             </div>
           )
         })}
