@@ -25,8 +25,8 @@ const createMiscSlice = (set, get) => ({
     categoryList: [],
     fetchCategoryList: async () => {
         try {
-            const response = await axios.get('/api/categories/:categoryId');
-            set({ categoryList: response.date });
+            const response = await axios.get('/api/categories/c/:categoryId');
+            set({ categoryList: response.data });
         } catch (error) {
             console.log('Error pulling the specific category list');
         }

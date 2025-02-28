@@ -4,6 +4,8 @@ import useStore from "../../zustand/store";
 function CategoriesLists() {
   const categoryList = useStore((state) => state.categoryList);
 console.log(categoryList);
+
+
   return (
     <div>
       <h3>Specific category List</h3>
