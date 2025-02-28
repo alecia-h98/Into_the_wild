@@ -24,6 +24,9 @@ app.use(express.static('build'));
 app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
+//increases the file size that you can send through express
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended:true}));
 
 // Apply router files:
 app.use('/api/user', userRouter);
