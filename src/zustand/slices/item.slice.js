@@ -34,9 +34,11 @@ const createItemSlice = (set, get) => ({
         } catch (error) {
             console.log('Error fetching favorites list');
         }
-    }
+    },
 
 
+    //put for the favorites
+    
 
 
 

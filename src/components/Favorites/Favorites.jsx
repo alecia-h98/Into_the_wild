@@ -1,25 +1,27 @@
 import React from "react"
 import useStore from "../../zustand/store";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
-function Favorites(props) {
+function Favorites() {
   const favorites = useStore((state) => state.favorites);
-  const navigate = useNavigate();
-
+  // const navigate = useNavigate();
+  console.log(favorites);
   //handleClick to bring the user back to the item's detail page
-  const handleClick = (event) => {
-    const category = event.target.parentElement.id;
-    navigate(`/items/${category}`)
-  }
+  // const handleClick = (event) => {
+  //   const category = event.target.parentElement.id;
+  //   navigate(`/items/${category}`)
+  // }
 
+
+  //onClick={handleClick}
   return (
     <div>
       <h1>Favorites List</h1>
-      <section className='categories'>
+      <section className='favorites'>
         {favorites?.map((item) => {
           return (
             <div key={item.id} id={item.id}>
-              <h3>{item.name} onClick={handleClick}</h3>
+              <h3 >{item.name} </h3>
               <img   />
             </div>
           );
