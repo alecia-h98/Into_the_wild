@@ -16,6 +16,6 @@ router.get('/', (req, res) => {
         console.log('ERROR: cannot render item list', err);
         res.sendStatus(500);
     })
-})
+});
 
 module.exports = router;

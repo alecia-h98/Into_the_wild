@@ -20,7 +20,6 @@ function FoundItem({item}) {
                 )
             })}
         </section>
-
     </div>
   )
 };

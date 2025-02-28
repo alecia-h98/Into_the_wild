@@ -17,14 +17,14 @@ function App() {
   const user = useStore((state) => state.user);
   const fetchUser = useStore((state) => state.fetchUser);
   const fetchFoundItems = useStore((state) => state.fetchFoundItems);
-  const fetchList = useStore((state) => state.fetchList);
+  const fetchCategories = useStore((state) => state.fetchCategories);
 
 
   useEffect(() => {
     fetchUser();
     fetchFoundItems();
-    fetchList();
-  }, [fetchUser, fetchFoundItems, fetchList]);
+    fetchCategories();
+  }, [fetchUser, fetchFoundItems, fetchCategories]);
 
   return (
     <>
