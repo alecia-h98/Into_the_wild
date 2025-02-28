@@ -22,11 +22,11 @@ const createMiscSlice = (set, get) => ({
     },
 
     //fetching a specific category list
-    categoryList: [],
-    fetchCategoryList: async (categoryId) => {
+    categoryItems: [],
+    fetchCategoryItems: async (categoryId) => {
         try {
             const response = await axios.get(`/api/categories/${categoryId}`);
-            set({ categoryList: response.data });
+            set({ categoryItems: response.data });
         } catch (error) {
             console.log('Error pulling the specific category list');
         }

@@ -11,14 +11,13 @@ import Tips_Guidelines from "../Tips_Guidelines/Tips_Guidelines";
 import FoundItem from "../FoundItem/FoundItem";
 import Category from "../Categories/Categories";
 import Favorites from "../Favorites/Favorites";
-import CategoriesLists from "../CategoryLists/CategoryLists";
+import CategoryItems from "../CategoryItems/CategoryItems";
 
 function App() {
   const user = useStore((state) => state.user);
   const fetchUser = useStore((state) => state.fetchUser);
   const fetchFoundItems = useStore((state) => state.fetchFoundItems);
   const fetchCategories = useStore((state) => state.fetchCategories);
-  const fetchCategoryList = useStore((state) => state.fetchCategoryList);
   const fetchFavorites = useStore((state) => state.fetchFavorites);
 
 
@@ -27,9 +26,8 @@ function App() {
     fetchUser();
     fetchFoundItems();
     fetchCategories();
-    fetchCategoryList();
     fetchFavorites();
-  }, [fetchUser, fetchFoundItems, fetchCategories, fetchCategoryList, fetchFavorites]);
+  }, [fetchUser, fetchFoundItems, fetchCategories, fetchFavorites]);
 
   return (
     <>
@@ -74,7 +72,7 @@ function App() {
           <Route path='/found/:itemId' element={<FoundItem />} />
           <Route path='/items' element={<Category />} />
           <Route path='/favorites' element={<Favorites />} />
-          <Route path='/categories/:categoryId' element={<CategoriesLists />} />
+          <Route path='/categories/:categoryId' element={<CategoryItems />} />
 
           <Route
             path="/about"

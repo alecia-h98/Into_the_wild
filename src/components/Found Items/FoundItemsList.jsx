@@ -10,7 +10,7 @@ function FoundItemsList() {
 
   //handleClick to nagivate them to the foundITEM detail page
   const handleClick = (event) => {
-    const itemId = event.target.parentElement.id;
+    const itemId = event.target.id;
     navigate(`/found/${itemId}`)
   }
 
@@ -22,7 +22,7 @@ function FoundItemsList() {
           return (
             <div key={item.id} id={item.id}>
               <h3>{item.name}</h3>
-              <img onClick={handleClick} src={item.photo} alt={item.name} />
+              <img id={item.id} onClick={handleClick} src={item.photo} alt={item.name} />
             </div>
           );
         })}
