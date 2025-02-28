@@ -5,7 +5,7 @@ const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 const router = express.Router();
 
-//getting all items - main category page
+//getting all items
 router.get('/', (req, res) => {
     const query = `
     SELECT * FROM "item";
@@ -22,21 +22,21 @@ router.get('/', (req, res) => {
 
 
 //grabbing by specific category
-router.get('/:category', (req,res) => {
-    const query = `
-    SELECT "id", "name", "description", "found", "season", "uses", "photo", "nutrition", "shelf_life", "harvesting", "imposters", "category"
-    FROM "item"
-    WHERE "category" = $1;
-    `;
-    pool.query(query,[req.params.category])
-        .then(result => {
-            res.send(result.rows);
-        })
-        .catch(err => {
-            console.log('ERROR GRABBING CATEGORY', err);
-            res.sendStatus(500);
-        })
-});
+// router.get('/:category', (req,res) => {
+//     const query = `
+//     SELECT "id", "name", "description", "found", "season", "uses", "photo", "nutrition", "shelf_life", "harvesting", "imposters", "category"
+//     FROM "item"
+//     WHERE "category" = $1;
+//     `;
+//     pool.query(query,[req.params.category])
+//         .then(result => {
+//             res.send(result.rows);
+//         })
+//         .catch(err => {
+//             console.log('ERROR GRABBING CATEGORY', err);
+//             res.sendStatus(500);
+//         })
+// });
 
 
 //getting a specific item from the specified category list

@@ -7,6 +7,8 @@ axios.defaults.withCredentials = true;
 
 
 const createItemSlice = (set, get) => ({
+ 
+    //fetching all items in my db
     itemsList: [],
 
     fetchList: async () => {
@@ -15,6 +17,18 @@ const createItemSlice = (set, get) => ({
             set({ itemsList: response.data });
         } catch (error) {
             console.log('Error fetching items');
+        }
+    },
+
+    //fetching a specific category from my db
+    category: [],
+
+    fetchCategory: async () => {
+        try {
+            const response = await axios.get('/api/items/:category');
+            set({ category: response.data });
+        } catch (error) {
+            console.log(`Error fetching category`);
         }
     },
 

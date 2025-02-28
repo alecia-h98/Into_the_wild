@@ -15,6 +15,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const foundRouter = require('./routes/found.router');
 const itemsRouter = require('./routes/items.router');
+const catagoryRouter = require('./routes/categories.router');
 
 // Apply middleware:
 app.use(express.json());
@@ -28,6 +29,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/found', foundRouter);
 app.use('/api/items', itemsRouter);
+app.use('/api/categories', catagoryRouter);
 
 
 // Start the server:
