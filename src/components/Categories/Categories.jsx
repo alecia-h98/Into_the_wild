@@ -8,9 +8,7 @@ function Categories(props) {
 console.log(itemsList);
   // handleClick to nagivate them to the category list pages
   const handleClick = (event) => {
-  itemsList.map((item) => {
-    navigate(`/items/${item.category}`)
-  })
+    navigate(`/category/${item.id}`)
 
   }
 
@@ -20,19 +18,14 @@ console.log(itemsList);
     <div>
       <h1>Pick a category:</h1>
       <section className='buttons'>
-        {/* {itemsList?.map((item) => {
+        {itemsList?.map((item) => {
           return (
-            <div key={item.id} id={item.id}> */}
-              <button onClick={handleClick}>Mushrooms</button>
-              <button onClick={handleClick}>Berries & Fruits</button>
-              <button onClick={handleClick}>Nuts & Seeds</button>
-              <button onClick={handleClick}>Herbs</button>
-              <button onClick={handleClick}>Other</button>
-              {/* <h3>{item.category} </h3>
+            <div key={item.id} id={item.id}>
+              <button onClick={handleClick}>{item.category}</button>
               <img   />
             </div>
           );
-        })} */}
+        })}
       </section>
     </div>
   )
