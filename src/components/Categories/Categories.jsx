@@ -2,29 +2,32 @@ import React from "react"
 import useStore from "../../zustand/store";
 import { useNavigate } from "react-router-dom";
 
-function Categories(props) {
-  const itemsList = useStore((state) => state.itemsList);
+function Categories() {
+  const categories = useStore((state) => state.categories);
   const navigate = useNavigate();
-console.log(itemsList);
+
+console.log(categories);
+
+
   // handleClick to nagivate them to the category list pages
   const handleClick = (event) => {
-    navigate(`/category/${item.id}`)
-
+    const categoryId = event.target.id;
+    navigate(`/categories/${categoryId}`);
   }
 
+ 
 
 
   return (
     <div>
       <h1>Pick a category:</h1>
       <section className='buttons'>
-        {itemsList?.map((item) => {
+        {categories?.map((category) => {
           return (
-            <div key={item.id} id={item.id}>
-              <button onClick={handleClick}>{item.category}</button>
-              <img   />
+            <div key={category.id} id={category.id}>
+              <button onClick={handleClick}>{category.name}</button>
             </div>
-          );
+          )
         })}
       </section>
     </div>

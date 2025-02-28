@@ -1,6 +1,5 @@
 const express = require('express');
 const pool = require('../modules/pool');
-//const axios = 
 const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 const router = express.Router();
@@ -86,7 +85,7 @@ WHERE "user_item"."user_id" = $1 AND "user_item"."is_favorited" = TRUE;
 // router.put('/favorites/:favId', rejectUnauthenticated, (req, res) => {
 //     const sqlText = `
 //     UPDATE "user_item" SET "is_favorited" = NOT "is_favorited"
-//     WHERE "item_id" a=$1 RETURNING *;
+//     WHERE "item_id"=$1 AND "item RETURNING *;
 //     `;
 //     pool.query(sqlText, [req.params.favId]).then((result) => {
 //         res.send(result.rows);

@@ -17,14 +17,14 @@ function App() {
   const user = useStore((state) => state.user);
   const fetchUser = useStore((state) => state.fetchUser);
   const fetchFoundItems = useStore((state) => state.fetchFoundItems);
-  const fetchList = useStore((state) => state.fetchList);
+  const fetchCategories = useStore((state) => state.fetchCategories);
 
 
   useEffect(() => {
     fetchUser();
     fetchFoundItems();
-    fetchList();
-  }, [fetchUser, fetchFoundItems, fetchList]);
+    fetchCategories();
+  }, [fetchUser, fetchFoundItems, fetchCategories]);
 
   return (
     <>
@@ -69,7 +69,7 @@ function App() {
           <Route path='/found/:itemId' element={<FoundItem />} />
           <Route path='/items' element={<Category />} />
           <Route path='/favorites' element={<Favorites />} />
-          <Route path='/items/:category' element={<CategoriesLists />} />
+          <Route path='/categories/:categoryId' element={<CategoriesLists />} />
 
           <Route
             path="/about"
