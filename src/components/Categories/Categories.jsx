@@ -12,7 +12,7 @@ console.log(categories);
   // handleClick to nagivate them to the category list pages
   const handleClick = (event) => {
     const categoryId = event.target.id;
-    navigate(`/categories/${categoryId}`);
+    navigate(`/categories/c/${categoryId}`);
   }
 
  
@@ -25,7 +25,7 @@ console.log(categories);
         {categories?.map((category) => {
           return (
             <div key={category.id} id={category.id}>
-              <button onClick={handleClick}>{category.name}</button>
+              <button id={category.id} onClick={handleClick}>{category.name}</button>
             </div>
           )
         })}
