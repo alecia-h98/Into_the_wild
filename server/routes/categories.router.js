@@ -3,6 +3,7 @@ const pool = require('../modules/pool');
 
 const router = express.Router();
 
+//DONE
 //getting all categories - main category page
 router.get('/', (req, res) => {
     const query = `
@@ -18,7 +19,7 @@ router.get('/', (req, res) => {
     })
 });
 
-
+//DONE
 router.get('/:categoryId', (req, res) => {
     const query = `
   SELECT category.id, category.name, item.category_id, item.id, item.name

@@ -4,6 +4,7 @@ const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 const router = express.Router();
 
+//DONE
 //getting all items
 router.get('/', (req, res) => {
     const query = `
@@ -38,6 +39,8 @@ router.get('/', (req, res) => {
 
 //UPDATE THESE ONCE THE NEW TABLE IS INCLUDED INTO SQL.
 
+
+//DONE
 //GRABBING THE FAVORITES LIST
 //MAKE SURE IT IS PULLING THE LOG IN USER'S FAVORITE ITEMS
 router.get('/favorites', (req, res) => {

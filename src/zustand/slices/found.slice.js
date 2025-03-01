@@ -8,6 +8,7 @@ axios.defaults.withCredentials = true;
 const createFoundSlice = (set, get) => ({
     foundItems: [],
 
+    //this finds the full list of found items (only renders their name and a link to the next funtion)
     fetchFoundItems: async () => {
         //axios GET our found items from db
         try {
@@ -17,6 +18,9 @@ const createFoundSlice = (set, get) => ({
             console.log('error fetching found items');       
         }
     }
+
+
+    //Finds the specific description of a 
 
 
 

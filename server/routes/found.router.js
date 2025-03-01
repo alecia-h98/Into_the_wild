@@ -87,16 +87,18 @@ router.post('/submit-form', upload.single('photo'), async (req, res) => {
 //       });
 //   });
 
-//GET FOUND LIST
+
 //MAKE SURE THIS RETURNS A SPECIFIC PERSON'S LIST AND NOT ALL OF THE LISTS
+//GET FOUND LIST
 router.get('/', (req, res) => {
     const query = `
-select found.id, found.found_date, found.description, found.item_id, found.location, found.photo, found.user_id, item.name
-from item
-join found
-on item.id = found.item_id;
+SELECT "found"."id", "found"."found_date", "found"."description", "found"."item_id", "found"."location", "found"."photo", "found"."user_id", "item"."name"
+From "item"
+JOIN "found"
+ON "item"."id" = "found"."item_id" 
+WHERE "found"."user_id" = $1;
     `;
-    pool.query(query)
+    pool.query(query [req.user.id])
      .then(result => {
         res.send(result.rows);
      })
@@ -105,6 +107,7 @@ on item.id = found.item_id;
         res.sendStatus(500)
      })
 });
+
 
 //the route for the specific found item and it's details
 router.get('/:foundId', (req, res) => {
@@ -127,9 +130,9 @@ where "found"."id" = $1 AND "found"."user_id" = $2;
      })
 });
 
-
+//DONE
 //DELETE POST FROM FOUND LIST
-router.delete('/:foundId', (req, res) => {
+router.delete('/del/:foundId', (req, res) => {
     console.log('req.params', req.params);
     const queryText = `DELETE FROM "found" WHERE "id" = $1;`;
     pool.query(queryText, [req.params.foundId]).then((result) => {
