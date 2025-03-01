@@ -22,23 +22,27 @@ router.get('/', (req, res) => {
 
 
 //getting a specific item from the specified category list
-// router.get('/:itemId', (req, res) => {
-//     const query = `
-//     SELECT "id", "name", "description", "found", "season", "uses", "photo", "nutrition", "shelf_life", "harvesting", "imposters"    FROM "item"
-//     WHERE "id" = $1;
-//     `;
-//     pool.query(query,[req.params.itemId])
-//     .then(result => {
-//       res.send(result.rows);
-//     })
-//     .catch(err => {
-//       console.log('Error:', err);
-//       res.sendStatus(500);
-//     })
-// });
+router.get('/:itemId', (req, res) => {
+    const query = `
+    SELECT "item"."id", "item"."name", "item"."description", "item"."found", "item"."season", "item"."uses", "item"."photo", "item"."nutrition", "item"."shelf_life", "item"."harvesting", "item"."imposters"
+    FROM "item"
+    WHERE "id" = $1;
+    `;
+    pool.query(query,[req.params.itemId])
+    .then(result => {
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('Error:', err);
+      res.sendStatus(500);
+    })
+});
 
 //UPDATE THESE ONCE THE NEW TABLE IS INCLUDED INTO SQL.
 
+// SELECT "item"."id", "item"."name", "item"."description", "item"."found", "item"."season", "item"."uses", "item"."photo", "item"."nutrition", "item"."shelf_life", "item"."harvesting", "item"."imposters"
+// FROM "item"
+// WHERE "id" = $1;
 
 //DONE
 //GRABBING THE FAVORITES LIST

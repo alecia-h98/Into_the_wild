@@ -20,7 +20,7 @@ const createFoundSlice = (set, get) => ({
     }
 
 
-    //Finds the specific description of a 
+    //Delete a found item
 
 
 

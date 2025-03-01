@@ -3,10 +3,13 @@ import useStore from "../../zustand/store";
 import { useNavigate } from "react-router-dom";
 
 function Categories() {
+
+//This page shows all of the categories a user can choose from
+
   const categories = useStore((state) => state.categories);
   const navigate = useNavigate();
 
-console.log(categories);
+console.log(categories, "This is the all categories page");
 
 
   // handleClick to nagivate them to the category list pages

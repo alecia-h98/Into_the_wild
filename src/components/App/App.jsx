@@ -12,6 +12,7 @@ import FoundItem from "../FoundItem/FoundItem";
 import Category from "../Categories/Categories";
 import Favorites from "../Favorites/Favorites";
 import CategoryItems from "../CategoryItems/CategoryItems";
+import SpecificItem from "../SpecificItem/SpecificItem";
 
 function App() {
   const user = useStore((state) => state.user);
@@ -73,6 +74,7 @@ function App() {
           <Route path='/items' element={<Category />} />
           <Route path='/favorites' element={<Favorites />} />
           <Route path='/categories/:categoryId' element={<CategoryItems />} />
+          <Route path='/items/:itemId' element={<SpecificItem />} />
 
           <Route
             path="/about"

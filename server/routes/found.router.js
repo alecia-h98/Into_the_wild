@@ -90,15 +90,16 @@ router.post('/submit-form', upload.single('photo'), async (req, res) => {
 
 //MAKE SURE THIS RETURNS A SPECIFIC PERSON'S LIST AND NOT ALL OF THE LISTS
 //GET FOUND LIST
-router.get('/', (req, res) => {
+router.get('/', (req,res) => {
     const query = `
 SELECT "found"."id", "found"."found_date", "found"."description", "found"."item_id", "found"."location", "found"."photo", "found"."user_id", "item"."name"
 From "item"
 JOIN "found"
 ON "item"."id" = "found"."item_id" 
-WHERE "found"."user_id" = $1;
+WHERE "found"."user_id" = $1
+ORDER BY "found"."found_date" DESC;
     `;
-    pool.query(query [req.user.id])
+    pool.query(query, [req.user.id])
      .then(result => {
         res.send(result.rows);
      })
