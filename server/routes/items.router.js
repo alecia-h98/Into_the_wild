@@ -61,14 +61,14 @@ WHERE "user_item"."user_id" = $1 AND "user_item"."is_favorited" = TRUE;
     })
 });
 
+//this does not work.
+//DONE
 // PUT ROUTE TO SWITCH AN ITEM'S FAVORITE KEY
-// MAKE SURE TO INCLUDE THE REQ.USER WHEN WRITING THIS
-router.put('/favorites/:favId', rejectUnauthenticated, (req, res) => {
+router.put('/:favId', rejectUnauthenticated, (req, res) => {
     const sqlText = `
     UPDATE "user_item" 
-SET "is_favorited" = FALSE 
-WHERE "is_favorited" = TRUE 
-AND "user_item"."id" = $1;
+SET "is_favorited" = NOT "is_favorited" 
+WHERE "user_item"."id" = $1;
     `;
     pool.query(sqlText, [req.params.favId]).then((result) => {
         res.send(result.rows);
@@ -77,5 +77,33 @@ AND "user_item"."id" = $1;
         console.error(err);
     })
 });
+
+
+// this is a mess. Check it once it is on the frontend
+//adding the users's favorites
+router.post('/favorites', (req,res) => {
+    const query = `
+    INSERT INTO "user_item" ("user_id", "item_id")
+    VALUES
+        ($1, $2);
+    `;
+    pool.query(query, [req.user.id, req.item.id])
+      .then(() => res.sendStatus(201))
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(500)
+      });
+    });
+//example post
+// router.post('/', (req, res) => {
+//     const { description, file_url, file_type } = req.body;
+//     const queryText = 'INSERT INTO "uploads" (description, file_url, file_type) VALUES ($1, $2, $3);';
+//     pool.query(queryText, [description, file_url, file_type])
+//       .then(() => res.sendStatus(201))
+//       .catch((err) => {
+//         console.log(err);
+//         res.sendStatus(500)
+//       });
+//   });
 
 module.exports = router;
