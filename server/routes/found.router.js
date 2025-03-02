@@ -104,7 +104,7 @@ ORDER BY "found"."found_date" DESC;
         res.send(result.rows);
      })
      .catch(err =>  {
-        console.log(`Error grabbing favorites`, err);
+        console.log(`Error grabbing found list`, err);
         res.sendStatus(500)
      })
 });
@@ -113,7 +113,7 @@ ORDER BY "found"."found_date" DESC;
 //the route for the specific found item and it's details
 router.get('/:foundId', (req, res) => {
     const query = `
-select "found"."id", "found"."found_date", "found"."description", "found"."item_id", "found"."location", "found"."photo", "found"."user_id", "found"."item_id", "item"."name"
+select "found"."id" as "foundId", "found"."found_date", "found"."description", "found"."item_id", "found"."location", "found"."photo", "found"."user_id", "found"."item_id", "item"."name"
 from "item"
 join "found"
 on "item"."id" = "found"."item_id"
@@ -126,7 +126,7 @@ where "found"."id" = $1 AND "found"."user_id" = $2;
         res.send(result.rows);
      })
      .catch(err =>  {
-        console.log(`Error grabbing favorites`, err);
+        console.log(`Error grabbing specific found`, err);
         res.sendStatus(500);
      })
 });

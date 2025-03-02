@@ -38,11 +38,7 @@ router.get('/:itemId', (req, res) => {
     })
 });
 
-//UPDATE THESE ONCE THE NEW TABLE IS INCLUDED INTO SQL.
 
-// SELECT "item"."id", "item"."name", "item"."description", "item"."found", "item"."season", "item"."uses", "item"."photo", "item"."nutrition", "item"."shelf_life", "item"."harvesting", "item"."imposters"
-// FROM "item"
-// WHERE "id" = $1;
 
 //DONE
 //GRABBING THE FAVORITES LIST
@@ -50,9 +46,11 @@ router.get('/:itemId', (req, res) => {
 router.get('/favorites', (req, res) => {
     const query = `
 SELECT "user_item"."is_favorited", "user_item"."user_id", "user_item"."item_id", "item"."name", "user_item"."id"
-from "item"
-join "user_item" on "item"."id" = "user_item"."item_id"
-JOIN "user" on "user_item"."user_id" = "user"."id"
+FROM "user_item"
+JOIN "item" 
+ON "user_item"."item_id" = "item"."id"
+JOIN "user"
+ON "user_item"."user_id" = "user"."id"
 WHERE "user_item"."user_id" = $1 AND "user_item"."is_favorited" = TRUE;
     `;
     pool.query(query,[req.user.id])

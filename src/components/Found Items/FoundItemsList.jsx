@@ -23,6 +23,7 @@ function FoundItemsList() {
             <div key={item.id} id={item.id}>
               <h3>{item.name}</h3>
               <img id={item.id} onClick={handleClick} src={item.photo} alt={item.name} />
+              <br />
             </div>
           );
         })}
