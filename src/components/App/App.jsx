@@ -13,6 +13,7 @@ import Category from "../Categories/Categories";
 import Favorites from "../Favorites/Favorites";
 import CategoryItems from "../CategoryItems/CategoryItems";
 import SpecificItem from "../SpecificItem/SpecificItem";
+import FoundForm from "../FoundForm/FoundForm";
 
 function App() {
   const user = useStore((state) => state.user);
@@ -75,6 +76,8 @@ function App() {
           <Route path='/items/favorites' element={<Favorites />} />
           <Route path='/categories/:categoryId' element={<CategoryItems />} />
           <Route path='/items/:itemId' element={<SpecificItem />} />
+          <Route path='/found/form' element={<FoundForm />} />
+
 
           <Route
             path="/about"

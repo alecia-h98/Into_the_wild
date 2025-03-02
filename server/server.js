@@ -16,6 +16,7 @@ const userRouter = require('./routes/user.router');
 const foundRouter = require('./routes/found.router');
 const itemsRouter = require('./routes/items.router');
 const catagoriesRouter = require('./routes/categories.router');
+const favoriteRouter = require('./routes/favorites.router');
 
 // Apply middleware:
 app.use(express.json({limit: '50mb'}));
@@ -31,6 +32,7 @@ app.use('/api/user', userRouter);
 app.use('/api/found', foundRouter);
 app.use('/api/items', itemsRouter);
 app.use('/api/categories', catagoriesRouter);
+app.use('/api/favorites', favoriteRouter);
 
 
 // Start the server:

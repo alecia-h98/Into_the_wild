@@ -55,10 +55,9 @@ router.post('/submit-form', upload.single('photo'), async (req, res) => {
 });
 
 
-
 //FORM POST
 //NEEDS WORK!!!!! MUST ATTACH URL LINK.
-// router.post('/', async (req, res) => {
+// router.post('/form', async (req, res) => {
 
 
 //     const cloudinaryResult = await cloudinary.uploader.upload({folder: "uploads_ITW"});
