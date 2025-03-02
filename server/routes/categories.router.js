@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 //getting all of the items in selected category
 router.get('/:categoryId', (req, res) => {
     const query = `
-    SELECT category.id, category.name, item.category_id, item.id, item.name, item.id AS "itemId"
+    SELECT category.id, category.name, item.category_id, item.photo, item.id, item.name, item.id AS "itemId"
     FROM category
     join item
     on category.id = item.category_id
