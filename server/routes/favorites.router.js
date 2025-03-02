@@ -26,9 +26,20 @@ router.get('/', (req, res) => {
     })
 });
 
+
+//PUT FUNCTION TO MAKE A FAVORITE
+// router.post('/', (req, res) => {
+//     const query = `
+    
+//     `;
+// });
+
+
+
+//DONE
 // PUT ROUTE TO SWITCH AN ITEM'S FAVORITE KEY
 // MAKE SURE TO INCLUDE THE REQ.USER WHEN WRITING THIS
-router.put('/:favId', (req, res) => {
+router.put('/fav/:favId', (req, res) => {
     const sqlText = `
     UPDATE "user_item" 
 SET "is_favorited" = FALSE 
