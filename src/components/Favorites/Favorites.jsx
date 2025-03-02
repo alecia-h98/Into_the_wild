@@ -21,10 +21,10 @@ function Favorites() {
         {favorites?.map((item) => {
           return (
             <div key={item.id} id={item.id}>
-              <h3 id={item.id} >
-                  {item.name} 
-                </h3>
-              <img   />
+              <h3 id={item.id}> {item.name} </h3>
+              <img  src={item.photo} alt={item.name} />
+              <button>Unfavorite</button>
+              <br />
             </div>
           );
         })}

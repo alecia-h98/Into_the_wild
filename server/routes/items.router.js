@@ -42,18 +42,17 @@ router.get('/:itemId', (req, res) => {
 
 //DONE
 //GRABBING THE FAVORITES LIST
-//MAKE SURE IT IS PULLING THE LOG IN USER'S FAVORITE ITEMS
 router.get('/favorites', (req, res) => {
     const query = `
 SELECT "user_item"."is_favorited", "user_item"."user_id", "user_item"."item_id", "item"."name", "user_item"."id"
 FROM "user_item"
-JOIN "item" 
+JOIN "item"
 ON "user_item"."item_id" = "item"."id"
 JOIN "user"
 ON "user_item"."user_id" = "user"."id"
-WHERE "user_item"."user_id" = $1 AND "user_item"."is_favorited" = TRUE;
+WHERE "user_item"."is_favorited"=true AND "user_item"."user_id" = $1;
     `;
-    pool.query(query,[req.user.id])
+    pool.query(query, [req.user.id])
     .then(result => {
       res.send(result.rows);
     })
@@ -65,7 +64,7 @@ WHERE "user_item"."user_id" = $1 AND "user_item"."is_favorited" = TRUE;
 
 // PUT ROUTE TO SWITCH AN ITEM'S FAVORITE KEY
 // MAKE SURE TO INCLUDE THE REQ.USER WHEN WRITING THIS
-router.put('/favorites/:favId', rejectUnauthenticated, (req, res) => {
+router.put('/favorites/:favId', (req, res) => {
     const sqlText = `
     UPDATE "user_item" 
 SET "is_favorited" = FALSE 

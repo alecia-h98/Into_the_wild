@@ -29,11 +29,20 @@ const createFoundSlice = (set, get) => ({
         } catch (error) {
             console.log('Error fetching specific found plant data', error);
         }
-    }
-    //
+    },
+
 
     //Delete a found item
-
+    deleteFoundItem: async (foundId) => {
+        try {
+            const response = await axios.delete(`/api/found/del/${foundId}`);
+            console.log('Item deleted successfully', response.data);
+            return response.data;
+        } catch (error) {
+            console.log('Error deleting found item', error);
+            alert('Failed to delete the item');
+        }
+    }
 
 
 

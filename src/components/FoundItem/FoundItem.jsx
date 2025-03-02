@@ -2,6 +2,7 @@ import React from "react"
 import useStore from "../../zustand/store";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import './FoundItem.css';
 
 function FoundItem() {
@@ -9,14 +10,24 @@ function FoundItem() {
     //This page shows found item details
 
     const fetchFoundItem = useStore((state) => state.fetchFoundItem);
+    const fetchFoundItems = useStore((state) => state.fetchFoundItems);
     const foundItem = useStore((state) => state.foundItem);
     const params = useParams();
+    const deleteFoundItem = useStore((state) => state.deleteFoundItem) ;
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         console.log(params.itemId);
         fetchFoundItem(params.foundId);
+
     },[fetchFoundItem]);
 
+    const handleClick = (event) => {
+        deleteFoundItem(params.foundId);
+        navigate(`/found`)
+        fetchFoundItems(params.foundId);
+      }
 
 
   return (
@@ -33,6 +44,7 @@ function FoundItem() {
                     <p><b>at:</b> {item.location}</p>
                     <br />
                     <p><b>Your entry:</b> {item.description}</p>
+                    <button onClick={handleClick}>Delete</button>
                     </div>
                 )
             })}

@@ -41,6 +41,10 @@ function SpecificItem() {
                 <p><b>How to harvest:</b> {plant.harvesting}</p>
                 <br />
                 <p><b>Common imposters:</b> {plant.imposters}</p>
+                <div>
+                  <button>Add favorite</button>
+                  <button>Found</button>
+                </div>
             </div>
           )
         })}
