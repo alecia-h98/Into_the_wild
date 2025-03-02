@@ -33,20 +33,6 @@ const createItemSlice = (set, get) => ({
 
 
 
-    //favorites page info
-    favorites: [],
-    fetchFavorites: async () => {
-        try {
-            const response = await axios.get('/api/items/favorites');
-            set ({ favorites : response.data });
-        } catch (error) {
-            console.log('Error fetching favorites list');
-        }
-    },
-
-
-    //put for the favorites
-    
 
 
 
