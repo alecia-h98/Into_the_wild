@@ -70,7 +70,7 @@ function App() {
           />
           <Route path='/tips_guidelines' element={<Tips_Guidelines/>}/>
           <Route path='/found' element={<FoundItemsList />} />
-          <Route path='/found/:itemId' element={<FoundItem />} />
+          <Route path='/found/:foundId' element={<FoundItem />} />
           <Route path='/items' element={<Category />} />
           <Route path='/favorites' element={<Favorites />} />
           <Route path='/categories/:categoryId' element={<CategoryItems />} />

@@ -6,8 +6,8 @@ import axios from 'axios';
 axios.defaults.withCredentials = true;
 
 const createFoundSlice = (set, get) => ({
-    foundItems: [],
 
+    foundItems: [],
     //this finds the full list of found items (only renders their name and a link to the next funtion)
     fetchFoundItems: async () => {
         //axios GET our found items from db
@@ -17,8 +17,20 @@ const createFoundSlice = (set, get) => ({
         } catch (error) {
             console.log('error fetching found items');       
         }
-    }
+    },
 
+    //This is the function that gets a specific found item's id to render only it's
+    //information to the page
+    foundItem: [],
+    fetchFoundItem: async (foundId) => {
+        try {
+            const response = await axios.get(`/api/found/${foundId}`);
+            set({ foundItem : response.data });
+        } catch (error) {
+            console.log('Error fetching specific found plant data', error);
+        }
+    }
+    //
 
     //Delete a found item
 

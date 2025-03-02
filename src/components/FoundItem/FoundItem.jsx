@@ -1,21 +1,38 @@
 import React from "react"
 import useStore from "../../zustand/store";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import './FoundItem.css';
 
-function FoundItem({item}) {
-    const foundItems = useStore((state) => state.foundItems);
+function FoundItem() {
 
-    console.log(item);
+    //This page shows found item details
+
+    const fetchFoundItem = useStore((state) => state.fetchFoundItem);
+    const foundItem = useStore((state) => state.foundItem);
+    const params = useParams();
+
+    useEffect(() => {
+        console.log(params.itemId);
+        fetchFoundItem(params.foundId);
+    },[fetchFoundItem]);
+
+
+
   return (
     <div>
         <section className='item'>
-            {foundItems?.map((item) => {
+            {foundItem?.map((item) => {
+                    console.log(item);
                 return(
                     <div key={item.id} id={item.id}>
-                    <h1>{item.name}</h1>
                     <img src={item.photo} alt={item.id}/>
-                    <p>Found on: {item.found_date}</p>
-                    <p>at: {item.location}</p>
-                    <p>{item.description}</p>
+                    <h1>{item.name}</h1>
+                    <p><b>Found on:</b> {item.found_date}</p>
+                    <br />
+                    <p><b>at:</b> {item.location}</p>
+                    <br />
+                    <p><b>Your entry:</b> {item.description}</p>
                     </div>
                 )
             })}
