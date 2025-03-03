@@ -22,7 +22,15 @@ const createFavoritesSlice = (set, get) => ({
     },
 
     //post function for favorites
-
+    addFavorite: async (itemId) => {
+        try {
+            const response = await axios.post(`/api/favorites/${itemId}`);
+            console.log('Adding favorite, item id added:', itemId);
+            return response.data;
+        } catch (error) {
+            console.log('Unable to set new favorite.');
+        }
+    },
 
     //put function for favorites
     switchFav: async (favId) => {
