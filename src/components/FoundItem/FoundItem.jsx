@@ -42,7 +42,7 @@ function FoundItem() {
                     <div
                     className='item' key={item.id} id={item.id}>
                     <h1>{item.name}</h1>
-                    <img src={item.photo} alt={item.id}/>
+                    <img className="foundPhoto" src={item.photo} alt={item.id}/>
                     <p><b>Found on:</b> {item.found_date}</p>
                     <br />
                     <p><b>at:</b> {item.location}</p>

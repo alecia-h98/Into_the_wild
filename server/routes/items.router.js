@@ -20,6 +20,31 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
+router.post('/:itemId/found', (req, res) => {
+  let newItem = {...req.body};
+
+  //should I put this after my pool.query code on line 72?
+  // if (!req.body.item_id || !req.body.found_date|| !req.body.location || !req.body.description || !req.body.photo || !req.user.id) {
+  //     console.error('Missing required fields');
+  //     res.sendStatus(400);
+  //     return;
+  // }
+
+
+  let queryText = `INSERT INTO "found" ("item_id", "found_date", "location", "description", "photo", "user_id") VALUES
+    ($1, $2, $3, $4, $5, $6) RETURNING *;`;
+  
+  pool.query(queryText, [newItem.item_id, newItem.found_date, newItem.location, newItem.description, newItem.photo, req.user.id]) 
+  .then(result => {
+    console.log(`retrieved results:`, result.rows);
+    res.sendStatus(201);
+  })
+  .catch((err) => {
+    console.error(`error adding form items `, err);
+    res.sendStatus(500);
+});
+});
+
 //DONE
 //getting a specific item from the specified category list
 router.get('/:itemId', rejectUnauthenticated, (req, res) => {

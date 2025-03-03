@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useRef } from "react";
 
 
-const UploadWidget = () => {
+const UploadWidget = ({setPhotoInput}) => {
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
 
@@ -15,6 +15,8 @@ const UploadWidget = () => {
       folder: 'uploads_ITW'
     }, function(error, result) {
       if (!error && result && result.event === "success") {
+        console.log(result);
+        setPhotoInput(result.info.secure_url);
         console.log('Done! Here is the public ID: ', result.info.public_id);
       }
     });

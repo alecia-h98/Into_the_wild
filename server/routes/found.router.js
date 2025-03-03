@@ -55,35 +55,35 @@ const upload = multer({ storage });
 // });
 
 //figure out how to add the item's id to add to the 
-router.post('/', (req, res) => {
-  let newItem = {...req.body};
+// router.post('/', (req, res) => {
+//   let newItem = {...req.body};
 
-  //should I put this after my pool.query code on line 72?
-  if (!req.body.item_id || !req.body.found_date|| !req.body.location || !req.body.description || !req.body.photo || !req.user.id) {
-      console.error('Missing required fields');
-      res.sendStatus(400);
-      return;
-  }
+//   //should I put this after my pool.query code on line 72?
+//   // if (!req.body.item_id || !req.body.found_date|| !req.body.location || !req.body.description || !req.body.photo || !req.user.id) {
+//   //     console.error('Missing required fields');
+//   //     res.sendStatus(400);
+//   //     return;
+//   // }
 
 
-  let queryText = `INSERT INTO "found" ("item_id", "found_date", "location", "description", "photo", "user_id") VALUES
-    ($1, $2, $3, $4, $5, $6) RETURNING *;`;
+//   let queryText = `INSERT INTO "found" ("item_id", "found_date", "location", "description", "photo", "user_id") VALUES
+//     ($1, $2, $3, $4, $5, $6) RETURNING *;`;
   
-  pool.query(queryText, [newItem.item_id, newItem.found_date, newItem.location, newItem.description, newItem.photo, req.user.id]) 
-  .then(result => {
-    console.log(`retrieved results:`, result.rows);
-    res.sendStatus(201);
-  })
-  .catch((err) => {
-    console.error(`error adding form items `, err);
-    res.sendStatus(500);
-});
-});
+//   pool.query(queryText, [newItem.item_id, newItem.found_date, newItem.location, newItem.description, newItem.photo, req.user.id]) 
+//   .then(result => {
+//     console.log(`retrieved results:`, result.rows);
+//     res.sendStatus(201);
+//   })
+//   .catch((err) => {
+//     console.error(`error adding form items `, err);
+//     res.sendStatus(500);
+// });
+// });
 
 
 //MAKE SURE THIS RETURNS A SPECIFIC PERSON'S LIST AND NOT ALL OF THE LISTS
 //GET FOUND LIST
-router.get('/', (req,res) => {
+router.get('/'  , (req,res) => {
     const query = `
 SELECT "found"."id", "found"."found_date", "found"."description", "found"."item_id", "found"."location", "found"."photo", "found"."user_id", "item"."name"
 From "item"

@@ -38,7 +38,7 @@ function SpecificItem() {
     };
 
     const formClick = (event) => {
-      navigate('/found/form')
+      navigate(`/items/${params.itemId}/found`)
     };
 
     const goBack = (par) => {
