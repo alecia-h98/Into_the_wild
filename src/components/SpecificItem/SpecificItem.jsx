@@ -2,6 +2,7 @@ import React from "react"
 import useStore from "../../zustand/store";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import './SpecificItem.css';
 
 function SpecificItem() {
@@ -12,6 +13,7 @@ function SpecificItem() {
     const fetchPlant = useStore((state) => state.fetchPlant);
     const params = useParams();
     const addFavorite = useStore((state) => state.addFavorite);
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.log(`Getting plant by id ${params.itemId}`)
@@ -21,6 +23,10 @@ function SpecificItem() {
     const clickMeFav = (itemId) => {
       console.log('itemId', itemId)
       addFavorite(params.itemId)
+    };
+
+    const handleClick = (event) => {
+      navigate('/found/form')
     };
 
   return (
@@ -49,7 +55,7 @@ function SpecificItem() {
                 <p><b>Common imposters:</b> {plant.imposters}</p>
                 <div>
                   <button onClick={clickMeFav} >Add favorite</button>
-                  <button>Found</button>
+                  <button onClick={handleClick} >Found</button>
                 </div>
             </div>
           )
