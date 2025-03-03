@@ -21,6 +21,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 router.post('/:itemId/found', (req, res) => {
+  console.log('server params', req.params);
   let newItem = {...req.body};
 
   //should I put this after my pool.query code on line 72?

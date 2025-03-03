@@ -37,7 +37,7 @@ function Favorites() {
       <section className='favorites'>
         {favorites?.map((item) => {
           return (
-            <div key={item.id} id={item.id}>
+            <div key={item.id} id={item.item_id}>
                 {/* <div id={item.item_id} onClick={goToItem} > */}
               <h3 id={item.item_id} onClick={goToItem}> {item.name} </h3>
               <img className='favPhotos' src={item.photo} alt={item.name} />

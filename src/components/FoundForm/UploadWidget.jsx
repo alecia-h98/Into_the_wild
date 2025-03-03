@@ -23,7 +23,7 @@ const UploadWidget = ({setPhotoInput}) => {
   }, []);
 
   return (
-    <button onClick={() => widgetRef.current.open()}>
+    <button type='button' onClick={() => widgetRef.current.open()}>
       Upload
     </button>
   );
