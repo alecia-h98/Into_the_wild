@@ -5,12 +5,18 @@ import UploadWidget from './UploadWidget';
 import { Cloudinary } from "@cloudinary/url-gen/index";
 import { AdvancedImage } from "@cloudinary/react";
 import { fill } from "@cloudinary/url-gen/actions/resize";
+import { useParams } from "react-router-dom";
+import './FoundForm.css';
+import { useNavigate } from "react-router-dom";
 
 function FoundForm() {
+  const params = useParams();
   const [dateInput, setDateInput] = useState('');
   const [locationInput, setLocationInput] = useState('');
   const [descriptionInput, setDescriptionInput] = useState('');
   const [photoInput, setPhotoInput] = useState('');
+  const navigate = useNavigate();
+  const fetchPlant= useStore((state) => state.fetchPlant);
 
   //----CLOUDINARY INFO----//
 
@@ -25,7 +31,7 @@ function FoundForm() {
   const myImage = cld.image('docs/result.info.public_id'); 
 
   // Resize to 250 x 250 pixels using the 'fill' crop mode.
-  myImage.resize(fill().width(250).height(250));
+  myImage.resize(fill().width(150).height(150));
 
 
 
@@ -39,14 +45,14 @@ function FoundForm() {
     event.preventDefault();
     
     const newItem = {
-        item_id: '',
+        item_id: params.itemId,
         found_date: dateInput,
         location: locationInput,
         description: descriptionInput,
-        //I believe this photo info is correct..?
         photo: photoInput,
-        user_id: ''
     }
+
+    console.log('New object', newItem);
     
     //Below is the photo 
     //result.info.public_id
@@ -56,10 +62,15 @@ function FoundForm() {
     setDateInput('');
     setLocationInput('');
     setDescriptionInput('');
-    // setPhotoInput('');
+    setPhotoInput('');
 
+    // navigate('/found');
   };
 
+//This function is just going back a page
+  const noMas = () => {
+    navigate(-1)
+  };
   
 
   return (
@@ -75,25 +86,32 @@ function FoundForm() {
           <input type="text" placeholder="Location found" value={locationInput}  onChange={(e) => setLocationInput(e.target.value)}/>
 
           {/* Description/journal entry */}
-          <input type="text" placeholder="Description" value={descriptionInput}  onChange={(e) => setDescriptionInput(e.target.value)}/>
+          <input type="text" style={{
+        width: '300px',
+        height: '100px',
+        fontSize: '16px',
+        padding: '10px',
+      }} placeholder="Description" value={descriptionInput}  onChange={(e) => setDescriptionInput(e.target.value)}/>
 
-          {/* Photo input */}
-           {/* This line of code is supposed to show the user the photo they uploaded..still working out the kinks */}         
-          <AdvancedImage cldImg={myImage} />
 
           <br />
 
           {/* This line of code renders the pop up widget tool to upload their photo to cloudinary */}
-          <UploadWidget />
+          <UploadWidget setPhotoInput={setPhotoInput}/>
+          <br />
 
           {/* Check to see if this actually renders the info for the public_id.. This may need to be changed */}
-          <input type="text" placeholder="uploaded img url" value={photoInput} onChange={(e) => setPhotoInput(result.info.public_id)} />
-
+          {photoInput}
+         {photoInput && <img id="uploadedPhoto" src={photoInput} height={200} width={200} />}
+        
           <br />
           
           <button type='submit' >Submit</button>
+          <br />
         </form>
+        <br />
       </section>
+      <button type='button' onClick={noMas} >Cancel</button>
     </div>
   )
 };
