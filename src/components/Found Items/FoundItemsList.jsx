@@ -14,9 +14,13 @@ function FoundItemsList() {
     navigate(`/found/${itemId}`)
   }
 
+  const goHome = () => {
+    navigate('/');
+  }
+
   return (
     <div>
-      <h1>Found items list</h1>
+      <h1>Found items</h1>
       <section className='item'>
         {foundItems?.map((item) => {
           return (
@@ -28,6 +32,7 @@ function FoundItemsList() {
           );
         })}
       </section>
+      <button onClick={goHome} >Back</button>
     </div>
   )
 };

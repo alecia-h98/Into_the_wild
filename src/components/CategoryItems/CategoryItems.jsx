@@ -29,17 +29,45 @@ function CategoriesLists() {
     navigate(`/items/${itemId}`)
   }
 
+  const back = () => {
+    navigate(`/items`)
+  }
+
+
+
+  const header = (par) => {
+    let content;
+    console.log('par', par);
+    if (par==1){
+      content = <h3>Other</h3>
+      return content;
+    } else if (par==2){
+      content = <h3>Mushrooms</h3>
+      return content;
+    } else if (par==3){
+      content = <h3>Berrys & Fruits</h3>
+      return content;
+    } else if (par==4){
+      content = <h3>Herbs</h3>
+      return content;
+    } else {
+      content = <h3>Nuts & Seeds</h3>
+      return content;
+    }
+  }
+
+  const head = header(params.categoryId);
 
   return (
-    <div>
-      <h3>Specific category List</h3>
+    <>
+    <div>{head}</div>
       <section className="item">
         {categoryItems?.map((item) => {
           return (
             <div key={item.id} id={item.id} >
                 <img className="tabPhoto" src={item.photo} alt="plant photo" />
-                <p>
-                <b id={item.itemId} onClick={handleClick}>{item.name}</b>
+                <p
+                id={item.itemId} onClick={handleClick}>{item.name}
                 {/* update the below image to show the item's photo, resize once it shows */}
               </p>
               <br />
@@ -47,8 +75,11 @@ function CategoriesLists() {
           );
         })}
       </section>
-    </div>
+      <button onClick={back} >Back</button>
+    </>
   );
+
+  //end of jsx function
 }
 
 export default CategoriesLists;

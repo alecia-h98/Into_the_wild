@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 //getting a specific item from the specified category list
 router.get('/:itemId', (req, res) => {
     const query = `
-    SELECT "item"."id", "item"."name", "item"."description", "item"."found", "item"."season", "item"."uses", "item"."photo", "item"."nutrition", "item"."shelf_life", "item"."harvesting", "item"."imposters"
+    SELECT "item"."id", "item"."name", "item"."description", "item"."found", "item"."season", "item"."uses", "item"."photo", "item"."nutrition", "item"."shelf_life", "item"."harvesting", "item"."imposters", "item"."category_id"
     FROM "item"
     WHERE "id" = $1;
     `;

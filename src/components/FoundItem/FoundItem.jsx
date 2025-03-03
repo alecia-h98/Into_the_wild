@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './FoundItem.css';
+import trash from '/images/bin.png';
 
 function FoundItem() {
 
@@ -29,25 +30,30 @@ function FoundItem() {
         fetchFoundItems(params.foundId);
       }
 
+    const goBack = () => {
+        navigate('/found')
+    }
 
   return (
     <div>
-        <section className='item'>
+        <section>
             {foundItem?.map((item) => {
                     console.log(item);
                 return(
-                    <div key={item.id} id={item.id}>
-                    <img src={item.photo} alt={item.id}/>
+                    <div
+                    className='item' key={item.id} id={item.id}>
                     <h1>{item.name}</h1>
+                    <img src={item.photo} alt={item.id}/>
                     <p><b>Found on:</b> {item.found_date}</p>
                     <br />
                     <p><b>at:</b> {item.location}</p>
                     <br />
                     <p><b>Your entry:</b> {item.description}</p>
-                    <button onClick={handleClick}>Delete</button>
+                    <img onClick={handleClick} src={trash} />
                     </div>
                 )
             })}
+            <button onClick={goBack} >Back</button>
         </section>
     </div>
   )
