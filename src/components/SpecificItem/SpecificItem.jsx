@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import './SpecificItem.css';
 import fav from '/images/like.png';
 import basket from '/images/wicker-basket.png';
+import { useState } from "react";
 
 function SpecificItem() {
 
@@ -16,6 +17,8 @@ function SpecificItem() {
     const params = useParams();
     const addFavorite = useStore((state) => state.addFavorite);
     const navigate = useNavigate();
+    const [imageChanged, setImageChanged] = useState(false);
+
 
     useEffect(() => {
         console.log(`Getting plant by id ${params.itemId}`)
@@ -26,6 +29,12 @@ function SpecificItem() {
       console.log('itemId', itemId)
       addFavorite(params.itemId)
       alert('Item has been favorited!')
+    };
+
+    const changeImage = () => {
+      if (!imageChanged) {
+        setImageChanged(true); // Update state once the image is clicked
+      }
     };
 
     const formClick = (event) => {

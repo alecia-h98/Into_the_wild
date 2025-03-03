@@ -6,7 +6,7 @@ const router = express.Router();
 
 //DONE
 //getting all items
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     const query = `
     SELECT * FROM "item";
     `;
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 
 //DONE
 //getting a specific item from the specified category list
-router.get('/:itemId', (req, res) => {
+router.get('/:itemId', rejectUnauthenticated, (req, res) => {
     const query = `
     SELECT "item"."id", "item"."name", "item"."description", "item"."found", "item"."season", "item"."uses", "item"."photo", "item"."nutrition", "item"."shelf_life", "item"."harvesting", "item"."imposters", "item"."category_id"
     FROM "item"
