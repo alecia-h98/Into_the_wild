@@ -20,14 +20,14 @@ const createFoundSlice = (set, get) => ({
     },
 
     addItem: async (item) => {
-        //item: {id, date, location, description, photo}
+        //item: {item_id, date, location, description, photo, user_id}
         try {
             console.log('Adding new found item', item);
-            await axios.post(`/api/found/submit-form`, item);
+            await axios.post(`/api/found`, item);
             //refreshing the found item list
             get().fetchFoundItems();
         } catch (err) {
-            console.error('Had and issue posting on the fe', err);
+            console.error('Had an issue posting with the frontend', err);
         }
     },
 
