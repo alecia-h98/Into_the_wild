@@ -31,7 +31,7 @@ function HomePage() {
 
   return (
     <>
-      <h2>Main Menu</h2>
+      {/* <h2>Main Menu</h2> */}
       <h3>Welcome Back {user.name}!</h3>
       <section  >
       <div className='favorites' onClick={moveFavorites} >

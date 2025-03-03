@@ -1,6 +1,13 @@
 import React from "react"
+import { useNavigate } from "react-router-dom";
 
 function Tips_Guidelines(props) {
+  const navigate = useNavigate();
+
+  const goHome = () => {
+    navigate('/');
+  }
+
   return (
     <div>
       <h1>Tips & Guidelines</h1>
@@ -24,6 +31,7 @@ function Tips_Guidelines(props) {
            Random bologna
         </li>
       </ul>
+      <button onClick={goHome} >Back</button>
     </div>
   )
 };

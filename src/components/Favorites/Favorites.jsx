@@ -1,49 +1,55 @@
 import React from "react"
 import useStore from "../../zustand/store";
 import './Favorites.css';
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import smolBasket from '/images/smol-wicker-basket.png';
+import smolHeart from '/images/smol-full-like.png';
+
 
 function Favorites() {
   const favorites = useStore((state) => state.favorites);
   const switchFav = useStore((state) => state.switchFav);
-  // const favorite = useStore((state) => state.favorite);
   const removeFavorite = useStore((state) => state.removeFavorite);
-  // const fetchFavorites = useStore((state) => state.fetchFavorites);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   console.log(favorites);
 
-  //---WTF IS THIS BELOW??---//
-  // handleClick to bring the user back to the item's detail page
-  // const handleClick = (event) => {
-  //   const category = event.target.parentElement.id;
-  //   navigate(`/items/${category}`)
-  // }
 
+
+  const goHome = () => {
+    navigate('/');
+  }
   
+  const foundForm = () => {
+    navigate('/found/form');
+  }
 
-  // const unfavorite = (event) => {
-  //   // const favId = event.target.id;
-  //   // console.log(favId);
-  //   switchFav(event);
-  //   // fetchFavorites();
+      //--for some reason this code below didn't work--//
+  // const goToItem = (event) => {
+  //   const itemId = event.target.id;
+  //   navigate(`/items/${itemId}`)
   // }
+
 
   return (
     <div>
-      <h1>Favorites List</h1>
+      <h1>Favorites</h1>
       <section className='favorites'>
         {favorites?.map((item) => {
           return (
             <div key={item.id} id={item.id}>
+                {/* <div id={item.item_id} onClick={goToItem} > */}
               <h3 id={item.id}> {item.name} </h3>
               <img className='favPhotos' src={item.photo} alt={item.name} />
+              {/* </div> */}
               <br />
-              <button onClick={() => removeFavorite(item.id)}>Unfavorite</button>
+              <img src={smolHeart} onClick={() => removeFavorite(item.id)}/>
+              <img onClick={foundForm} src={smolBasket} />
               <br />
             </div>
           );
         })}
       </section>
+      <button onClick={goHome} >Back</button>
     </div>
   )
 };

@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './SpecificItem.css';
+import fav from '/images/like.png';
+import basket from '/images/wicker-basket.png';
 
 function SpecificItem() {
 
@@ -20,13 +22,18 @@ function SpecificItem() {
         fetchPlant(params.itemId)
     },[params.itemId]);
 
-    const clickMeFav = (itemId) => {
+    const favClick = (itemId) => {
       console.log('itemId', itemId)
       addFavorite(params.itemId)
+      alert('Item has been favorited!')
     };
 
-    const handleClick = (event) => {
+    const formClick = (event) => {
       navigate('/found/form')
+    };
+
+    const goBack = (par) => {
+      navigate(`categories/${par}`)
     };
 
   return (
@@ -54,8 +61,9 @@ function SpecificItem() {
                 <br />
                 <p><b>Common imposters:</b> {plant.imposters}</p>
                 <div>
-                  <button onClick={clickMeFav} >Add favorite</button>
-                  <button onClick={handleClick} >Found</button>
+                  <img onClick={favClick} src={fav} />
+                  <img onClick={formClick} src={basket} />
+                  {/* <button onClick={goBack(plant.category_id)} >Back</button> */}
                 </div>
             </div>
           )

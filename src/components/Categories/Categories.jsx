@@ -18,7 +18,11 @@ console.log(categories, "This is the all categories page");
     navigate(`/categories/${categoryId}`);
   }
 
- 
+  const goHome = () => {
+    navigate('/');
+  }
+
+  
 
 
   return (
@@ -29,11 +33,22 @@ console.log(categories, "This is the all categories page");
           return (
             <div key={category.id} id={category.id}>
               <img src={category.photo} />
-              <button id={category.id} onClick={handleClick}>{category.name}</button>
+              <button id={category.id} onClick={handleClick}>
+                {category.id ===1
+                ? "Other"
+                :category.id ===2
+                ? "Mushrooms"
+                :category.id ===3
+                ? "Berrys & Fruits"
+                :category.id ===4
+                ? "Herbs"
+                : "Nuts & Seeds"}
+                </button>
             </div>
           )
         })}
       </section>
+      <button onClick={goHome} >Back</button>
     </div>
   )
 };
