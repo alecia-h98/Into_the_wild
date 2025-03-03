@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     const query = `
-    SELECT "user_item"."is_favorited", "user_item"."user_id", "user_item"."item_id", "item"."name", "user_item"."id"
+    SELECT "user_item"."is_favorited", "user_item"."user_id", "user_item"."item_id", "item"."name", "item"."photo", "user_item"."id"
     FROM "user_item"
     JOIN "item"
     ON "user_item"."item_id" = "item"."id"

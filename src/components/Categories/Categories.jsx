@@ -28,6 +28,7 @@ console.log(categories, "This is the all categories page");
         {categories?.map((category) => {
           return (
             <div key={category.id} id={category.id}>
+              <img src={category.photo} />
               <button id={category.id} onClick={handleClick}>{category.name}</button>
             </div>
           )

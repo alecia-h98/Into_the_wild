@@ -1,5 +1,6 @@
 import React from "react"
 import useStore from "../../zustand/store";
+import './Favorites.css';
 // import { useNavigate } from "react-router-dom";
 
 function Favorites() {
@@ -35,7 +36,8 @@ function Favorites() {
           return (
             <div key={item.id} id={item.id}>
               <h3 id={item.id}> {item.name} </h3>
-              <img  src={item.photo} alt={item.name} />
+              <img className='favPhotos' src={item.photo} alt={item.name} />
+              <br />
               <button onClick={() => removeFavorite(item.id)}>Unfavorite</button>
               <br />
             </div>

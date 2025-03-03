@@ -1,9 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import useStore from '../../zustand/store';
 
+//MAKE THIS PAGE THE DROP DOWN MENU
 
 function Nav() {
   const user = useStore((store) => store.user);
+  const logOut = useStore((state) => state.logOut);
+
+  const handleLogOut = () => {
+    logOut;
+
+  }
 
   return (
     <nav>
@@ -37,6 +44,9 @@ function Nav() {
             </li>
             <li>
               <NavLink to="/tips_guidelines">Tips & Guidelines</NavLink>
+            </li>
+            <li>
+              Log Out
             </li>
           </>
         )
