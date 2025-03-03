@@ -11,11 +11,17 @@ function SpecificItem() {
     const plant = useStore((state) => state.plant);
     const fetchPlant = useStore((state) => state.fetchPlant);
     const params = useParams();
+    const addFavorite = useStore((state) => state.addFavorite);
 
     useEffect(() => {
         console.log(`Getting plant by id ${params.itemId}`)
         fetchPlant(params.itemId)
     },[params.itemId]);
+
+    const clickMeFav = (itemId) => {
+      console.log('itemId', itemId)
+      addFavorite(params.itemId)
+    };
 
   return (
     <div>
@@ -42,7 +48,7 @@ function SpecificItem() {
                 <br />
                 <p><b>Common imposters:</b> {plant.imposters}</p>
                 <div>
-                  <button>Add favorite</button>
+                  <button onClick={clickMeFav} >Add favorite</button>
                   <button>Found</button>
                 </div>
             </div>

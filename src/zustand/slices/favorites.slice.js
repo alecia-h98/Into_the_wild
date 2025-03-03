@@ -17,24 +17,59 @@ const createFavoritesSlice = (set, get) => ({
             const response = await axios.get('/api/favorites');
             set({ favorites : response.data });
         } catch (error) {
-            console.log('error fetching favorites');
+            console.log('error fetching favorites', error);
         }
     },
 
     //post function for favorites
+    addFavorite: async (itemId) => {
+        try {
+            const response = await axios.post(`/api/favorites/${itemId}`);
+            console.log('Adding favorite, item id added:', itemId);
+            return response.data;
+        } catch (error) {
+            console.log('Unable to set new favorite.');
+        }
+    },
 
 
     //put function for favorites
-    switchFav: async (favId) => {
+    removeFavorite: async (favId) => {
         try {
-            const response = await axios.put(`/api/favorites/fav/${favId}`);
-            console.log('Item unfavorited sucessfully', response.data);
-            return response.data;
+            //below we are sending the id in the request body
+            await axios.put(`/api/favorites/fav`, { id: favId });
+            
+            // Update the state to remove the item from favorites array
+            set((state) => ({
+                favorites: state.favorites.filter((item) => item.id !== favId),
+            }));
         } catch (error) {
-            console.log('Error unfavoriting item', error);
-            alert('Failed to unfavorite the item');  
+            console.error("Error updating favorite:", error);
         }
     }
+
+
+    // switchFav: async (event) => {
+    //     const thisButton = event.target;
+    //     const favId = thisButton.closet('div').dataset.item.id;
+    //     axios.put(`/api/favorites/fav/${favId}`)
+    //         .then(() => {
+    //         get().fetchFavorites()})
+    //         .catch(err => console.error(err));
+    // }
+
+    //---The guts of the switch fav function---//
+    // try {
+    //     const response = await axios.put(`/api/favorites/fav`).then((response) => {
+    //         console.log('Item unfavorited sucessfully', response.data);
+    //         get().fetchFavorites();
+    //         // return response.data;
+    //     })
+
+    // } catch (error) {
+    //     console.log('Error unfavoriting item', error);
+    //     alert('Failed to unfavorite the item');  
+    // }
 
 });
 

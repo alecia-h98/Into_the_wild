@@ -77,6 +77,7 @@ function App() {
           <Route path='/categories/:categoryId' element={<CategoryItems />} />
           <Route path='/items/:itemId' element={<SpecificItem />} />
           <Route path='/found/form' element={<FoundForm />} />
+          {/* <Route path='/favorites/fav' element={<Favorites />} /> */}
 
 
           <Route
