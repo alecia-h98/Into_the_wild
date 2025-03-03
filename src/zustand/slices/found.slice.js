@@ -19,6 +19,18 @@ const createFoundSlice = (set, get) => ({
         }
     },
 
+    addItem: async (item) => {
+        //item: {item_id, date, location, description, photo, user_id}
+        try {
+            console.log('Adding new found item', item);
+            await axios.post(`/api/found`, item);
+            //refreshing the found item list
+            get().fetchFoundItems();
+        } catch (err) {
+            console.error('Had an issue posting with the frontend', err);
+        }
+    },
+
     //This is the function that gets a specific found item's id to render only it's
     //information to the page
     foundItem: [],

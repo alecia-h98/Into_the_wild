@@ -25,66 +25,60 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 // Route for form submission + image upload
-router.post('/submit-form', upload.single('photo'), async (req, res) => {
-  try {
-    const { found_date, location, description } = req.body; // Form fields
-    let photoUrl = null;
+// router.post('/submit-form', upload.single('photo'), async (req, res) => {
+//   try {
+//     const { found_date, location, description } = req.body; // Form fields
+//     let photoUrl = null;
 
-    if (req.file) {
-      // Upload to Cloudinary
-      const result = await new Promise((resolve, reject) => {
-        cloudinary.uploader.upload_stream(
-          { folder: "uploads_ITW" }, // Cloudinary folder name
-          (error, result) => {
-            if (error) reject(error);
-            else resolve(result);
-          }
-        ).end(req.file.buffer);
-      });
+//     if (req.file) {
+//       // Upload to Cloudinary
+//       const result = await new Promise((resolve, reject) => {
+//         cloudinary.uploader.upload_stream(
+//           { folder: "uploads_ITW" }, // Cloudinary folder name
+//           (error, result) => {
+//             if (error) reject(error);
+//             else resolve(result);
+//           }
+//         ).end(req.file.buffer);
+//       });
 
-      photoUrl = result.secure_url;
-    }
+//       photoUrl = result.secure_url;
+//     }
 
-    // Example: Store form data and photo URL in the database (optional)
-    console.log({ found_date, location, description, photoUrl });
+//     // Example: Store form data and photo URL in the database (optional)
+//     console.log({ found_date, location, description, photoUrl });
 
-    return res.json({ success: true, photoUrl, found_date, location, description });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-
-//FORM POST
-//NEEDS WORK!!!!! MUST ATTACH URL LINK.
-// router.post('/form', async (req, res) => {
-
-
-//     const cloudinaryResult = await cloudinary.uploader.upload({folder: "uploads_ITW"});
-//     const cloudUrl = cloudinaryResult.secure_url;
-
-//     let sqlText = `INSERT INTO "found" ("item_id","found_date", "location", "description", "photo" "user_id", ) VALUES ($1, $2, $3, $4, $5, $6);`
-//     pool.query(sqlText, [req.body.item_id, req.body.found_date, req.body.location, req.body.description, cloudUrl, req.user.id])
-//     .then((results) => {
-//         res.sendStatus(200);
-//     }).catch((err) => {
-//         console.log(err);
-//         res.sendStatus(500);
-//     });
+//     return res.json({ success: true, photoUrl, found_date, location, description });
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
 // });
 
+//figure out how to add the item's id to add to the 
+router.post('/', (req, res) => {
+  let newItem = {...req.body};
 
-//example post
-// router.post('/', (req, res) => {
-//     const { description, file_url, file_type } = req.body;
-//     const queryText = 'INSERT INTO "uploads" (description, file_url, file_type) VALUES ($1, $2, $3);';
-//     pool.query(queryText, [description, file_url, file_type])
-//       .then(() => res.sendStatus(201))
-//       .catch((err) => {
-//         console.log(err);
-//         res.sendStatus(500)
-//       });
-//   });
+  //should I put this after my pool.query code on line 72?
+  if (!req.body.item_id || !req.body.found_date|| !req.body.location || !req.body.description || !req.body.photo || !req.user.id) {
+      console.error('Missing required fields');
+      res.sendStatus(400);
+      return;
+  }
+
+
+  let queryText = `INSERT INTO "found" ("item_id", "found_date", "location", "description", "photo", "user_id") VALUES
+    ($1, $2, $3, $4, $5, $6) RETURNING *;`;
+  
+  pool.query(queryText, [newItem.item_id, newItem.found_date, newItem.location, newItem.description, newItem.photo, req.user.id]) 
+  .then(result => {
+    console.log(`retrieved results:`, result.rows);
+    res.sendStatus(201);
+  })
+  .catch((err) => {
+    console.error(`error adding form items `, err);
+    res.sendStatus(500);
+});
+});
 
 
 //MAKE SURE THIS RETURNS A SPECIFIC PERSON'S LIST AND NOT ALL OF THE LISTS

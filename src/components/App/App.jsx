@@ -79,7 +79,6 @@ function App() {
           <Route path='/found/form' element={<FoundForm />} />
           {/* <Route path='/favorites/fav' element={<Favorites />} /> */}
 
-
           <Route
             path="/about"
             element={
