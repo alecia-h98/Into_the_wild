@@ -20,11 +20,12 @@ const createFoundSlice = (set, get) => ({
     },
 
     //something is wrong with this code.
-    addItem: async (itemId) => {
+    addItem: async (foundItem) => {
         //item: {item_id, date, location, description, photo, user_id}
+        console.log('found item', foundItem);
         try {
             // console.log('Adding new found item', item);
-            await axios.post(`/api/item/${itemId}/found`, itemId);
+            await axios.post(`/api/items/${foundItem.item_id}/found`, foundItem);
             //refreshing the found item list
             get().fetchFoundItems();
         } catch (err) {

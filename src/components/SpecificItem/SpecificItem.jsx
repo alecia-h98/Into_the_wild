@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './SpecificItem.css';
-import fav from '/images/like.png';
 import basket from '/images/wicker-basket.png';
 import { useState } from "react";
 
@@ -17,9 +16,17 @@ function SpecificItem() {
     const params = useParams();
     const addFavorite = useStore((state) => state.addFavorite);
     const navigate = useNavigate();
+    //this is to switch between my post and put function(allowing me to toggle with the heart)
     const [imageChanged, setImageChanged] = useState(false);
+    
+    const changeImage = () => {
+      if (!imageChanged) {
+        //after it is clicked it will update the state
+        setImageChanged(true);
+      }
+    };
 
-
+    
     useEffect(() => {
         console.log(`Getting plant by id ${params.itemId}`)
         fetchPlant(params.itemId)
@@ -29,20 +36,19 @@ function SpecificItem() {
       console.log('itemId', itemId)
       addFavorite(params.itemId)
       alert('Item has been favorited!')
-    };
-
-    const changeImage = () => {
       if (!imageChanged) {
-        setImageChanged(true); // Update state once the image is clicked
+        //after it is clicked it will update the state
+        setImageChanged(true);
       }
     };
+
 
     const formClick = (event) => {
       navigate(`/items/${params.itemId}/found`)
     };
 
-    const goBack = (par) => {
-      navigate(`categories/${par}`)
+    const goBack = () => {
+      navigate(-1);
     };
 
   return (
@@ -70,9 +76,9 @@ function SpecificItem() {
                 <br />
                 <p><b>Common imposters:</b> {plant.imposters}</p>
                 <div>
-                  <img onClick={favClick} src={fav} />
+                  <img src={imageChanged ? "/images/big-filled-heart.png" : "/images/like.png"} alt="Toggle Image" onClick={favClick} />
                   <img onClick={formClick} src={basket} />
-                  {/* <button onClick={goBack(plant.category_id)} >Back</button> */}
+                  <button onClick={goBack}>Back</button>
                 </div>
             </div>
           )
