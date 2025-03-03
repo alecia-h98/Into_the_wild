@@ -35,8 +35,7 @@ function FoundItem() {
     }
 
   return (
-    <div>
-        <section>
+    <div key='foundItem' >
             {foundItem?.map((item) => {
                     console.log(item);
                 return(
@@ -54,7 +53,6 @@ function FoundItem() {
                 )
             })}
             <button onClick={goBack} >Back</button>
-        </section>
     </div>
   )
 };

@@ -71,19 +71,20 @@ router.put('/fav', (req, res) => {
     })
 });
 
-//new?
-// router.put('/fav', (req, res) => {
+//toggling
+// router.put('/fav/:id', (req, res) => {
+
 //     const sqlText = `
-//     UPDATE "user_item" 
-// SET "is_favorited" = FALSE 
-// WHERE "is_favorited" = TRUE 
-// AND "user_item"."id" = $1;
+//         UPDATE "user_item" 
+//         SET "is_favorited" = NOT "is_favorited" 
+//         WHERE "is_favorited" = TRUE 
+//         AND "user_item"."id" = $1;
 //     `;
-//     pool.query(sqlText, [req.body.id]).then((result) => {
-//         res.send(result.rows);
-//     }).catch(err => {
-//         res.sendStatus(500);
-//         console.error(err);
+//     pool.query(sqlText, [req.user])
+//         .then(() => res.sendStatus(200))
+//         .catch(err => {
+//             console.error(err);
+//             res.sendStatus(500);
 //     })
 // });
 

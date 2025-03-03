@@ -1,16 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import useStore from '../../zustand/store';
 
+
 //MAKE THIS PAGE THE DROP DOWN MENU
 
 function Nav() {
   const user = useStore((store) => store.user);
   const logOut = useStore((state) => state.logOut);
 
-  const handleLogOut = () => {
-    logOut;
 
-  }
 
   return (
     <nav>
@@ -27,9 +25,13 @@ function Nav() {
           </>
         )
       }
-      { // User is logged in, render these links:
+      
+
+       { // User is logged in, render these links:
         user.id && (
           <>
+          {/* <CollapsedMenu /> */}
+          
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
@@ -47,7 +49,7 @@ function Nav() {
             </li>
             <li>
               Log Out
-            </li>
+            </li> 
           </>
         )
       }
