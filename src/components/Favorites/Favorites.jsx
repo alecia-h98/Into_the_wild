@@ -24,10 +24,11 @@ function Favorites() {
   }
 
       //--for some reason this code below didn't work--//
-  // const goToItem = (event) => {
-  //   const itemId = event.target.id;
-  //   navigate(`/items/${itemId}`)
-  // }
+  const goToItem = (event) => {
+    const itemId = event.target.id;
+    console.log(itemId);
+    navigate(`/items/${itemId}`)
+  }
 
 
   return (
@@ -38,7 +39,7 @@ function Favorites() {
           return (
             <div key={item.id} id={item.id}>
                 {/* <div id={item.item_id} onClick={goToItem} > */}
-              <h3 id={item.id}> {item.name} </h3>
+              <h3 id={item.item_id} onClick={goToItem}> {item.name} </h3>
               <img className='favPhotos' src={item.photo} alt={item.name} />
               {/* </div> */}
               <br />
