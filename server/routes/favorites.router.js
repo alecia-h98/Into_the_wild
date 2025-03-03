@@ -26,13 +26,25 @@ router.get('/', (req, res) => {
     })
 });
 
-
-//PUT FUNCTION TO MAKE A FAVORITE
-// router.post('/', (req, res) => {
-//     const query = `
-    
-//     `;
-// });
+//DONE? - WORKS ON THE BACKEND
+//POST FUNCTION TO MAKE A FAVORITE
+router.post('/:itemId', (req, res) => {
+    const query = `
+    INSERT INTO "user_item"
+	("user_id", "item_id")
+	VALUES
+	($1, $2);
+    `;
+    pool.query(query, [req.user.id, req.params.itemId])
+    .then(result => {
+        console.log(`retrieved results:`, result.rows);
+       res.sendStatus(201);
+     })
+   .catch((err) => {
+     console.error(`error adding koalas `, err);
+     res.sendStatus(500);
+   });
+});
 
 
 
@@ -53,5 +65,21 @@ AND "user_item"."id" = $1;
         console.error(err);
     })
 });
+
+//new?
+// router.put('/fav', (req, res) => {
+//     const sqlText = `
+//     UPDATE "user_item" 
+// SET "is_favorited" = FALSE 
+// WHERE "is_favorited" = TRUE 
+// AND "user_item"."id" = $1;
+//     `;
+//     pool.query(sqlText, [req.body.id]).then((result) => {
+//         res.send(result.rows);
+//     }).catch(err => {
+//         res.sendStatus(500);
+//         console.error(err);
+//     })
+// });
 
 module.exports = router;
