@@ -5,6 +5,7 @@ import basket from '/images/wicker-basket.png';
 import magnifying from '/images/search.png';
 import lightBulb from '/images/light-bulb.png';
 import './HomePage.css';
+import Button from 'react-bootstrap/Button';
 
 
 function HomePage() {
@@ -67,9 +68,9 @@ function HomePage() {
       </section>
       {/* <p>Your username is: {user .username}</p>
       <p>Your ID is: {user.id}</p> */}
-      <button onClick={logOut}>
+      <Button variant="dark" onClick={logOut}>
         Log Out
-      </button>
+      </Button>
     </>
   );
 }

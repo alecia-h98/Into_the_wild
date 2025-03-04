@@ -1,5 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button'
 
 function Tips_Guidelines(props) {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ function Tips_Guidelines(props) {
            Random bologna
         </li>
       </ul>
-      <button onClick={goHome} >Back</button>
+      <Button variant="dark" onClick={goHome} >Back</Button>
     </div>
   )
 };

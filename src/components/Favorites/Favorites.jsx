@@ -4,7 +4,7 @@ import './Favorites.css';
 import { useNavigate } from "react-router-dom";
 import smolBasket from '/images/smol-wicker-basket.png';
 import smolHeart from '/images/smol-full-like.png';
-
+import Button from 'react-bootstrap/Button';
 
 function Favorites() {
   const favorites = useStore((state) => state.favorites);
@@ -49,7 +49,7 @@ function Favorites() {
           );
         })}
       </section>
-      <button onClick={goHome} >Back</button>
+      <Button variant="dark" onClick={goHome} >Back</Button>
     </div>
   )
 };

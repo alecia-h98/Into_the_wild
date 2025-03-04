@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
 import useStore from '../../zustand/store';
+import './RegisterPage.css';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 function RegisterPage() {
@@ -29,41 +34,47 @@ function RegisterPage() {
 
   return (
     <>
-      <h2>Register Page</h2>
-      <form onSubmit={handleRegister}>
-      <label htmlFor="name">Name:</label>
-        <input
+          <section id="form" >
+      <Form onSubmit={handleRegister}>
+      <Row className="align-items-center" >
+      <Col sm={3} className="my-1"></Col>
+      <h2 style={{display: 'flex', justifyContent: 'center'}}>Register Page</h2>
+
+      <Form.Label htmlFor="name">Name:</Form.Label>
+        <Form.Control
           type="text"
           id="name"
           required
           value={nameinput}
           onChange={(e) => setNameInput(e.target.value)}
         />
-        <label htmlFor="username">Username:</label>
-        <input
+        <Form.Label htmlFor="username">Username:</Form.Label>
+        <Form.Control
           type="text"
           id="username"
           required
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label htmlFor="password">Password:</label>
-        <input
+        <Form.Label htmlFor="password">Password:</Form.Label>
+        <Form.Control
           type="password"
           id="password"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">
+        <Button variant="dark" type="submit">
           Register 
-        </button>
-      </form>
+        </Button>
+        </Row>
+      </Form>
       { // Conditionally render registration error:
         errorMessage && (
           <h3>{errorMessage}</h3>
         )
       }
+      </section>
     </>
   );
 }

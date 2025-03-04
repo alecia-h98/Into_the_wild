@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import './SpecificItem.css';
 import basket from '/images/wicker-basket.png';
 import { useState } from "react";
+import Button from 'react-bootstrap/Button';
 
 function SpecificItem() {
 
@@ -78,7 +79,7 @@ function SpecificItem() {
                 <div>
                   <img src={imageChanged ? "/images/big-filled-heart.png" : "/images/like.png"} alt="Toggle Image" onClick={favClick} />
                   <img onClick={formClick} src={basket} />
-                  <button onClick={goBack}>Back</button>
+                  <Button variant="dark" onClick={goBack}>Back</Button>
                 </div>
             </div>
           )

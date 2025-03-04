@@ -8,6 +8,7 @@ import { fill } from "@cloudinary/url-gen/actions/resize";
 import { useParams } from "react-router-dom";
 import './FoundForm.css';
 import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 function FoundForm() {
   const params = useParams();
@@ -106,12 +107,12 @@ function FoundForm() {
         
           <br />
           
-          <button type='submit' >Submit</button>
+          <Button variant="dark" type='submit' >Submit</Button>
           <br />
         </form>
         <br />
       </section>
-      <button type='button' onClick={noMas} >Cancel</button>
+      <Button variant="dark" type='button' onClick={noMas}>Cancel</Button>
     </div>
   )
 };

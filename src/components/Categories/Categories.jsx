@@ -1,6 +1,8 @@
 import React from "react"
 import useStore from "../../zustand/store";
 import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import './Categories.css';
 
 function Categories() {
 
@@ -48,7 +50,7 @@ console.log(categories, "This is the all categories page");
           )
         })}
       </section>
-      <button onClick={goHome} >Back</button>
+      <Button variant="dark" onClick={goHome} >Back</Button>
     </div>
   )
 };
