@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './FoundItem.css';
 import trash from '/images/bin.png';
+import Button from 'react-bootstrap/Button';
 
 function FoundItem() {
 
@@ -52,7 +53,7 @@ function FoundItem() {
                     </div>
                 )
             })}
-            <button onClick={goBack} >Back</button>
+            <Button variant="dark" onClick={goBack} >Back</Button>
     </div>
   )
 };

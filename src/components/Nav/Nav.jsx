@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import useStore from '../../zustand/store';
-
+import './Nav.css';
 
 //MAKE THIS PAGE THE DROP DOWN MENU
 

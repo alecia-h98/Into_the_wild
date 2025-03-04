@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import useStore from "../../zustand/store";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 import './CategoryItems.css';
 
 function CategoriesLists() {
@@ -75,7 +76,7 @@ function CategoriesLists() {
           );
         })}
       </section>
-      <button onClick={back} >Back</button>
+      <Button variant="dark" onClick={back} >Back</Button>
     </>
   );
 

@@ -1,7 +1,7 @@
 import React from "react"
 import { useEffect } from "react";
 import { useRef } from "react";
-
+import Button from 'react-bootstrap/Button';
 
 const UploadWidget = ({setPhotoInput}) => {
   const cloudinaryRef = useRef();
@@ -23,9 +23,9 @@ const UploadWidget = ({setPhotoInput}) => {
   }, []);
 
   return (
-    <button type='button' onClick={() => widgetRef.current.open()}>
-      Upload
-    </button>
+    <Button variant="dark" type='button' onClick={() => widgetRef.current.open()}>
+      Upload photo
+    </Button>
   );
 };
 
