@@ -47,7 +47,7 @@ function Nav() {
             <li>
               <NavLink to="/tips_guidelines">Tips & Guidelines</NavLink>
             </li>
-            <li>
+            <li onClick={logOut} >
               Log Out
             </li> 
           </>

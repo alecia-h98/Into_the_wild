@@ -31,7 +31,13 @@ function HomePage() {
 
   return (
     <>
-      {/* <h2>Main Menu</h2> */}
+    <div className="container">
+      <div className="row">
+        <div className="col-xs-12 col-sm-6 col-lg-4 text-white">Column 1</div>
+         <div className="col-xs-12 col-sm-6 col-lg-4 text-white">Column 2</div>
+           <div className="col-xs-12 col-xs-12 col-xs-12 bg-warning text-dark">Column 3</div>
+             </div>
+              </div>
       <h3>Welcome Back {user.name}!</h3>
       <section  >
       <div className='favorites' onClick={moveFavorites} >

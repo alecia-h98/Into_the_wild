@@ -39,10 +39,9 @@ function Favorites() {
           return (
             <div key={item.id} id={item.item_id}>
                 {/* <div id={item.item_id} onClick={goToItem} > */}
-              <h3 id={item.item_id} onClick={goToItem}> {item.name} </h3>
               <img className='favPhotos' src={item.photo} alt={item.name} />
+              <h3 id={item.item_id} onClick={goToItem}> {item.name} </h3>
               {/* </div> */}
-              <br />
               <img src={smolHeart} onClick={() => removeFavorite(item.id)}/>
               <img onClick={foundForm} src={smolBasket} />
               <br />
