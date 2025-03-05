@@ -1,27 +1,50 @@
+h3{
+    text-align: center;
+    /* margin-left: 15%; */
+}
+
 .favorites{
     display: inline-block;
+    margin-left: 10%;
+}
+#heart{
+    margin-left: 12%;
 }
 
 .foundItems{
     display: inline-block;
+    margin-left: 60%;
+}
+#basket{
+    margin-left: 20%;
 }
 
 .foragable{
     display: inline-block;
+    margin-left: 3%;
+}
+#magnify{
+    margin-left: 27%;
 }
 
 .T_a_G{
     display: inline-block;
+    margin-left: 62%;
+}
+#lightbulb{
+    margin-left: 13%;
 }
 
 #background {
     border-radius: 25px;
     background: rgba(220, 228, 201, 0.627);
     padding: 20px;
+    margin-top: 20%;
 }
 
 #button{
-    position:absolute;
+    /* position:absolute; */
     bottom: 110px;
-    left: 10px;
+    width: 372px;
+    align-items: center !important;
 }

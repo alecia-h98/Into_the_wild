@@ -1,11 +1,11 @@
 const express = require('express');
 const pool = require('../modules/pool');
-
+const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 const router = express.Router();
 
 //DONE
 //getting all categories - main category page
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     const query = `
     SELECT * FROM "category";
     `;
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 
 //DONE
 //getting all of the items in selected category
-router.get('/:categoryId', (req, res) => {
+router.get('/:categoryId', rejectUnauthenticated, (req, res) => {
     const query = `
     SELECT category.id, category.name AS category_name, item.category_id, item.photo, item.id, item.name, item.id AS "itemId"
     FROM category

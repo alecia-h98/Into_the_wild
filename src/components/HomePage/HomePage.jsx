@@ -33,21 +33,22 @@ function HomePage() {
   return (
     <>
     <section id="background" >
-      <h3>Welcome Back {user.name}!</h3>
+      <h3><b>Welcome Back {user.name}!</b></h3>
+      <br />
       <section  >
       <div className='favorites' onClick={moveFavorites} >
-      <img src={heart}/>
+      <img id="heart" src={heart}/>
       <h5>Favorites</h5>
       </div>
       <br />
       <div className='foundItems' onClick={moveFoundItems} >
-      <img src={basket} />
+      <img id="basket" src={basket} />
       <h5>Found Items</h5>
       </div>
       <br />
       <div className='foragable' onClick={moveForagable} >
-      <img src={magnifying} />
-      <h5>Foragable Items List</h5>
+      <img id="magnify" src={magnifying} />
+      <h5>Foragable Items</h5>
       </div>
       <br />
       {/* <div className='findASnack' >
@@ -56,7 +57,7 @@ function HomePage() {
       </div>
       <br /> */}
       <div className='T_a_G' onClick={moveTaG} >
-      <img src={lightBulb} />
+      <img id="lightbulb" src={lightBulb} />
       <h5>Tips & Guidelines</h5>
       </div>
       </section>
