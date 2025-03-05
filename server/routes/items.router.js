@@ -20,7 +20,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
-router.post('/:itemId/found', (req, res) => {
+router.post('/:itemId/found', rejectUnauthenticated, (req, res) => {
   console.log('server params', req.params);
   let newItem = {...req.body};
 

@@ -9,6 +9,8 @@ import { useParams } from "react-router-dom";
 import './FoundForm.css';
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Stack from 'react-bootstrap/Stack';
 
 function FoundForm() {
   const params = useParams();
@@ -98,10 +100,15 @@ function FoundForm() {
           <br />
 
           {/* This line of code renders the pop up widget tool to upload their photo to cloudinary */}
-          <UploadWidget setPhotoInput={setPhotoInput}/>
+         
           <br />
 
           {/* Check to see if this actually renders the info for the public_id.. This may need to be changed */}
+          <Stack direction="horizontal" gap={3}>
+          <Form.Control className="me-auto" placeholder="Photo url.." /> {/* figure out how to put the url into this text box*/}
+          <UploadWidget setPhotoInput={setPhotoInput}/>          <div className="vr" />
+          <Button variant="danger">Reset</Button>
+          </Stack>
           {photoInput}
          {photoInput && <img id="uploadedPhoto" src={photoInput} height={200} width={200} />}
         

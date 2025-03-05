@@ -1,9 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import useStore from '../../zustand/store';
 import './Nav.css';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useNavigate } from 'react-router-dom';
 //MAKE THIS PAGE THE DROP DOWN MENU
 
@@ -46,7 +44,7 @@ function Nav() {
       <Dropdown.Menu>
         <Dropdown.Item>
           <NavLink to="/">Home</NavLink></Dropdown.Item>
-        <Dropdown.Item href="#/action-2">
+        <Dropdown.Item>
           <NavLink to="/favorites">Favorites</NavLink>
         </Dropdown.Item>
         <Dropdown.Item>
@@ -88,9 +86,9 @@ function Nav() {
       } 
       
       {/* Show these links regardless of auth status: */}
-        <li>
+        {/* <li>
           <NavLink to="/about">About</NavLink>
-        </li>
+        </li> */}
       </ul>
     </nav> 
   );

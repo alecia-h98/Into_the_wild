@@ -1,6 +1,7 @@
 .favPhotos{
     height: 50px;
     width: 50px;
+    display: inline-block;
 }
 #background{
     border-radius: 25px;
@@ -11,5 +12,12 @@
 #button{
     position:absolute;
     bottom: 110px;
-    left: 170px;
+}
+
+#favorites{
+    justify-content: space-between;
+}
+
+.listName{
+    display: inline-block;
 }
