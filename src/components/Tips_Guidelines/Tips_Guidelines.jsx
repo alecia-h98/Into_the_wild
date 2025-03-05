@@ -1,6 +1,8 @@
 import React from "react"
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button'
+import acornPhoto from '/images/acorns.jpg';
+import './Tips_guidelines.css'
 
 function Tips_Guidelines(props) {
   const navigate = useNavigate();
@@ -10,11 +12,12 @@ function Tips_Guidelines(props) {
   }
 
   return (
-    <div>
+    <div id='background' >
       <h1>Tips & Guidelines</h1>
       <ul>
         <li>Always be 1000% sure of the plant you're foraging before eating it. Get a foraging book that goes over not only the plant itself but also it's similar imposters.</li>
         <br/>
+        <img src={acornPhoto} alt='Basket of mushrooms' id='acornPhoto' />
         <li>
           <b>Don't over harvest.</b> Take only what you need, leaving enough for the plant to regenerate and allowing other animals to continue hunting for these delectible treats.
         </li>
@@ -25,11 +28,11 @@ function Tips_Guidelines(props) {
         </li>
         <br/>
         <li>
-           Random bologna
+           Fill in information
         </li>
         <br/>
         <li>
-           Random bologna
+           Fill in information
         </li>
       </ul>
       <Button variant="dark" onClick={goHome} >Back</Button>
