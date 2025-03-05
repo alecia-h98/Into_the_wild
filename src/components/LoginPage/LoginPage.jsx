@@ -33,7 +33,7 @@ function LoginPage() {
     <>
       {/* <h1>Into the Wild</h1> */}
       
-      <p>Discover your surroundings.</p>
+      <p><b>Discover your surroundings.</b></p>
       <section id="form" >
       <Form onSubmit={handleLogIn}>
         <Row className="align-items-center" >

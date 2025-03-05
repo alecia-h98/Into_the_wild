@@ -53,7 +53,7 @@ function SpecificItem() {
     };
 
   return (
-    <div>
+    <div id='background' >
       <h3>Show specific item here</h3>
       <section className='plant'>
         {plant?.map((plant) => {

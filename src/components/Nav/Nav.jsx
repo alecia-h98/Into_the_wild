@@ -1,13 +1,21 @@
 import { NavLink } from 'react-router-dom';
 import useStore from '../../zustand/store';
 import './Nav.css';
-
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import { useNavigate } from 'react-router-dom';
 //MAKE THIS PAGE THE DROP DOWN MENU
 
 function Nav() {
   const user = useStore((store) => store.user);
   const logOut = useStore((state) => state.logOut);
+  const navigate = useNavigate();
 
+  const logOutFunction = () => {
+    logOut();
+    navigate('/login');
+  }
 
 
   return (
@@ -30,8 +38,33 @@ function Nav() {
        { // User is logged in, render these links:
         user.id && (
           <>
-          {/* <CollapsedMenu /> */}
-          
+ <Dropdown>
+      <Dropdown.Toggle variant="dark" id="dropdown-basic">
+       Menu
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item>
+          <NavLink to="/">Home</NavLink></Dropdown.Item>
+        <Dropdown.Item href="#/action-2">
+          <NavLink to="/favorites">Favorites</NavLink>
+        </Dropdown.Item>
+        <Dropdown.Item>
+          <NavLink to="/found">Found Items</NavLink>
+        </Dropdown.Item>
+        <Dropdown.Item>
+          <NavLink to="/items">Categories</NavLink>
+        </Dropdown.Item>
+        <Dropdown.Item>
+          <NavLink to="/tips_guidelines">Tips & Guidelines</NavLink>
+        </Dropdown.Item>
+        <Dropdown.Item onClick={logOutFunction}>
+          Log Out
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+ 
+          {/* <CollapsedMenu />          
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
@@ -49,17 +82,17 @@ function Nav() {
             </li>
             <li onClick={logOut} >
               Log Out
-            </li> 
+            </li> */}
           </>
         )
-      }
+      } 
       
       {/* Show these links regardless of auth status: */}
         <li>
           <NavLink to="/about">About</NavLink>
         </li>
       </ul>
-    </nav>
+    </nav> 
   );
 }
 

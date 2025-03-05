@@ -32,7 +32,7 @@ function Favorites() {
 
 
   return (
-    <div>
+    <div id='background' >
       <h1>Favorites</h1>
       <section className='favorites'>
         {favorites?.map((item) => {

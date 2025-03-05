@@ -2,6 +2,7 @@ import React from "react"
 import useStore from "../../zustand/store";
 // import FoundItem from "../FoundItem/FoundItem";
 import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 import './FoundItemsList.css';
 
 function FoundItemsList() {
@@ -33,7 +34,7 @@ function FoundItemsList() {
           );
         })}
       </section>
-      <button onClick={goHome} >Back</button>
+      <Button variant="dark" onClick={goHome} >Back</Button>
     </div>
   )
 };

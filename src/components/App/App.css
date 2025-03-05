@@ -1,8 +1,4 @@
-.favPhotos{
-    height: 50px;
-    width: 50px;
-}
-#background{
+#about{
     border-radius: 25px;
     background: rgba(220, 228, 201, 0.627);
     padding: 20px;
