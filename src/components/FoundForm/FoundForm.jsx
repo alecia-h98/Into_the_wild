@@ -75,7 +75,7 @@ function FoundForm() {
   
 
   return (
-    <div>
+    <div id='background' >
       <h3>Welcome to the found form!</h3>
       <section>
         <form id="form" onSubmit={formHandler}>
@@ -112,7 +112,7 @@ function FoundForm() {
         </form>
         <br />
       </section>
-      <Button variant="dark" type='button' onClick={noMas}>Cancel</Button>
+      <Button id='cancelButton' variant="dark" type='button' onClick={noMas}>Cancel</Button>
     </div>
   )
 };

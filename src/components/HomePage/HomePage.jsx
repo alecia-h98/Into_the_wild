@@ -32,7 +32,7 @@ function HomePage() {
 
   return (
     <>
-    <section id="homepage" >
+    <section id="background" >
       <h3>Welcome Back {user.name}!</h3>
       <section  >
       <div className='favorites' onClick={moveFavorites} >
@@ -62,7 +62,7 @@ function HomePage() {
       </section>
       {/* <p>Your username is: {user .username}</p>
       <p>Your ID is: {user.id}</p> */}
-      <Button variant="dark" onClick={logOut}>
+      <Button id='button' variant="dark" onClick={logOut}>
         Log Out
       </Button>
       </section>
