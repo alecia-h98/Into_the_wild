@@ -49,7 +49,7 @@ function Favorites() {
           );
         })}
       </section>
-      <Button variant="dark" onClick={goHome} >Back</Button>
+      <Button id='button' variant="dark" onClick={goHome} >Back</Button>
     </div>
   )
 };

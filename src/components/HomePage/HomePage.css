@@ -14,8 +14,14 @@
     display: inline-block;
 }
 
-#homepage{
+#background {
     border-radius: 25px;
     background: rgba(220, 228, 201, 0.627);
     padding: 20px;
+}
+
+#button{
+    position:absolute;
+    bottom: 110px;
+    left: 10px;
 }

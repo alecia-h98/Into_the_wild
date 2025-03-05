@@ -61,8 +61,8 @@ function CategoriesLists() {
 
   return (
     <>
-    <div>{head}</div>
-      <section className="item">
+    <div id='background' >{head}</div>
+      <section id='backgroundList' className="item">
         {categoryItems?.map((item) => {
           return (
             <div key={item.id} id={item.id} >

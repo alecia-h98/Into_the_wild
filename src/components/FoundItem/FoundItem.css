@@ -1,4 +1,14 @@
 .foundPhoto{
         height: 150px;
         width: 150px;
+        border-radius: 25px;
+        background: rgba(220, 228, 201, 0.627);
+        padding: 20px;
+        align-content: center;
 }
+
+#background {
+        border-radius: 25px;
+        background: rgba(220, 228, 201, 0.627);
+        padding: 20px;
+    }

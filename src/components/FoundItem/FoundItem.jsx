@@ -36,7 +36,7 @@ function FoundItem() {
     }
 
   return (
-    <div key='foundItem' >
+    <div id='background' >
             {foundItem?.map((item) => {
                     console.log(item);
                 return(
