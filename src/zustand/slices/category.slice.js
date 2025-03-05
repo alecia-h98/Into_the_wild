@@ -7,7 +7,6 @@ axios.defaults.withCredentials = true;
 
 const createMiscSlice = (set, get) => ({
 
-    //the favorites functions go here
 
 
     //the categories functions go here

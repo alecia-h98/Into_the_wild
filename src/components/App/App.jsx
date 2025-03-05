@@ -14,6 +14,9 @@ import Favorites from "../Favorites/Favorites";
 import CategoryItems from "../CategoryItems/CategoryItems";
 import SpecificItem from "../SpecificItem/SpecificItem";
 import FoundForm from "../FoundForm/FoundForm";
+import './App.css';
+
+
 
 function App() {
   const user = useStore((state) => state.user);
@@ -21,6 +24,8 @@ function App() {
   const fetchFoundItems = useStore((state) => state.fetchFoundItems);
   const fetchCategories = useStore((state) => state.fetchCategories);
   const fetchFavorites = useStore((state) => state.fetchFavorites);
+  
+  const favorites = useStore((state) => state.favorites)
 
 
 
@@ -29,7 +34,12 @@ function App() {
     fetchFoundItems();
     fetchCategories();
     fetchFavorites();
-  }, [fetchUser, fetchFoundItems, fetchCategories, fetchFavorites]);
+  }, [fetchUser, fetchFoundItems, fetchCategories, fetchFavorites, user.id]);
+  console.log('fetching user', user);
+  console.log('fetching favorites', favorites);
+
+
+
 
   return (
     <>
@@ -79,10 +89,12 @@ function App() {
           <Route path='/items/:itemId' element={<SpecificItem />} />
           {/* <Route path='/favorites/fav' element={<Favorites />} /> */}
 
+
           <Route
             path="/about"
             element={
               <>
+              <div id='about' >
                 <h2>About Page</h2>
                 <p>
                   Intelligence doesn’t seem like an aspect of personal
@@ -115,6 +127,7 @@ function App() {
                 <p>
                   --From Steve McConnell's <em>Code Complete</em>.
                 </p>
+                </div>
               </>
             }
           />

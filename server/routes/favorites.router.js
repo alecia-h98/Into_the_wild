@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     const query = `
     SELECT "user_item"."is_favorited", "user_item"."user_id", "user_item"."item_id", "item"."name", "item"."photo", "user_item"."id"
     FROM "user_item"
@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
 
 //DONE
 //POST FUNCTION TO MAKE A FAVORITE
-router.post('/:itemId', (req, res) => {
+router.post('/:itemId', rejectUnauthenticated, (req, res) => {
     const query = `
     INSERT INTO "user_item"
 	("user_id", "item_id")
@@ -50,7 +50,7 @@ router.post('/:itemId', (req, res) => {
 //Done??
 // PUT ROUTE TO SWITCH AN ITEM'S FAVORITE KEY
 // MAKE SURE TO INCLUDE THE REQ.USER WHEN WRITING THIS
-router.put('/fav', (req, res) => {
+router.put('/fav', rejectUnauthenticated, (req, res) => {
     //Below is making a request to grab the id from the req.body
     const { id } = req.body;
     

@@ -28,14 +28,15 @@ console.log(categories, "This is the all categories page");
 
 
   return (
-    <div>
+    <>
+    <div id="background" >
       <h1>Pick a category:</h1>
       <section className='buttons'>
         {categories?.map((category) => {
           return (
             <div key={category.id} id={category.id}>
               <img src={category.photo} />
-              <button id={category.id} onClick={handleClick}>
+              <Button variant="dark" id={category.id} onClick={handleClick}>
                 {category.id ===1
                 ? "Other"
                 :category.id ===2
@@ -45,13 +46,16 @@ console.log(categories, "This is the all categories page");
                 :category.id ===4
                 ? "Herbs"
                 : "Nuts & Seeds"}
-                </button>
+                </Button>
             </div>
           )
         })}
       </section>
+      </div>
+      <div id='backButton'>
       <Button variant="dark" onClick={goHome} >Back</Button>
     </div>
+    </>
   )
 };
 

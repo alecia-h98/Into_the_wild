@@ -51,7 +51,7 @@ const createFoundSlice = (set, get) => ({
         try {
             const response = await axios.delete(`/api/found/del/${foundId}`);
             console.log('Item deleted successfully', response.data);
-            return response.data;
+            get().fetchFoundItems();
         } catch (error) {
             console.log('Error deleting found item', error);
             alert('Failed to delete the item');
