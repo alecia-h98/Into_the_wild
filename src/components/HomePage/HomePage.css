@@ -43,8 +43,10 @@ h3{
 }
 
 #button{
-    /* position:absolute; */
-    bottom: 110px;
-    width: 372px;
-    align-items: center !important;
+    /* position:absolute;
+    bottom: 90px;
+    align-items: center !important; */
+    transform: translate(-1%, 5px);
+    width: 320px;
+
 }

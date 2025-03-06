@@ -9,10 +9,10 @@
     padding: 20px;
 }
 
-#button{
+/* #button{
     position:absolute;
     bottom: 110px;
-}
+} */
 
 #favorites{
     justify-content: space-between;
