@@ -36,8 +36,7 @@ function SpecificItem() {
     const favClick = (itemId) => {
       console.log('itemId', itemId)
       addFavorite(params.itemId)
-      alert('Item has been favorited!')
-      if (!imageChanged) {
+       if (!imageChanged) {
         //after it is clicked it will update the state
         setImageChanged(true);
       }
@@ -54,7 +53,6 @@ function SpecificItem() {
 
   return (
     <div id='background' >
-      <h3>Show specific item here</h3>
       <section className='plant'>
         {plant?.map((plant) => {
           return (
@@ -79,7 +77,8 @@ function SpecificItem() {
                 <div>
                   <img src={imageChanged ? "/images/big-filled-heart.png" : "/images/like.png"} alt="Toggle Image" onClick={favClick} />
                   <img onClick={formClick} src={basket} />
-                  <Button variant="dark" onClick={goBack}>Back</Button>
+                  <br />
+                  <Button id='button' variant="dark" onClick={goBack}>Back</Button>
                 </div>
             </div>
           )

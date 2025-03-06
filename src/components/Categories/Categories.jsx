@@ -53,7 +53,7 @@ console.log(categories, "This is the all categories page");
       </section>
       </div>
       <div id='backButton'>
-      <Button variant="dark" onClick={goHome} >Back</Button>
+      <Button id="button" variant="dark" onClick={goHome} >Back</Button>
     </div>
     </>
   )

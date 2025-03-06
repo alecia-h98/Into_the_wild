@@ -23,18 +23,18 @@ function FoundItemsList() {
   return (
     <div id='background' >
       <h1>Found items</h1>
-      <section className='item'>
         {foundItems?.map((item) => {
           return (
             <div key={item.id} id={item.id}>
-              <h3>{item.name}</h3>
+             <div id='foundItemSection' >
               <img id={item.id} onClick={handleClick} src={item.photo} alt={item.name} height={75} width={75}  />
+              <h3 id='foundTitle' >{item.name}</h3>
               <br />
+              </div>
             </div>
           );
         })}
-      </section>
-      <Button variant="dark" onClick={goHome} >Back</Button>
+      <Button id='button' variant="dark" onClick={goHome} >Back</Button>
     </div>
   )
 };

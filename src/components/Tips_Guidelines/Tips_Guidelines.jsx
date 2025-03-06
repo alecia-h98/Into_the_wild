@@ -35,7 +35,7 @@ function Tips_Guidelines(props) {
            Fill in information
         </li>
       </ul>
-      <Button variant="dark" onClick={goHome} >Back</Button>
+      <Button id='button' variant="dark" onClick={goHome} >Back</Button>
     </div>
   )
 };

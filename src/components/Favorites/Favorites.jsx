@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import smolBasket from '/images/smol-wicker-basket.png';
 import smolHeart from '/images/smol-full-like.png';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 function Favorites() {
   const favorites = useStore((state) => state.favorites);
@@ -30,6 +32,7 @@ function Favorites() {
     navigate(`/items/${itemId}`)
   }
 
+ 
 
   return (
     <div id='background' >
@@ -39,11 +42,16 @@ function Favorites() {
           return (
             <div key={item.id} id={item.item_id}>
                 {/* <div id={item.item_id} onClick={goToItem} > */}
+                <Card border="success" >
+                  <Card.Body>
               <img className='favPhotos' src={item.photo} alt={item.name} />
-              <h3 id={item.item_id} onClick={goToItem}> {item.name} </h3>
-              {/* </div> */}
-              <img src={smolHeart} onClick={() => removeFavorite(item.id)}/>
-              <img onClick={foundForm} src={smolBasket} />
+              <Card.Title id={item.item_id} onClick={goToItem}> {item.name} </Card.Title>
+              <div id='favButtons' >
+              <img id="favHeart" src={smolHeart} onClick={() => removeFavorite(item.id)}/>
+              <img id="favBasket" onClick={foundForm} src={smolBasket} />
+              </div>
+              </Card.Body>
+              </Card>
               <br />
             </div>
           );

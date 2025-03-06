@@ -75,8 +75,9 @@ function CategoriesLists() {
             </div>
           );
         })}
+        <Button id='button' variant="dark" onClick={back} >Back</Button>
       </section>
-      <Button variant="dark" onClick={back} >Back</Button>
+
     </>
   );
 
