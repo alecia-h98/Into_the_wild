@@ -61,23 +61,25 @@ function CategoriesLists() {
 
   return (
     <>
-    <div id='background' >{head}</div>
-      <section id='backgroundList' className="item">
+    <div id='background'>
+    <div>{head}</div>
+      <section className="item">
         {categoryItems?.map((item) => {
           return (
+            <div id='backgroundList'>
             <div key={item.id} id={item.id} >
                 <img className="tabPhoto" src={item.photo} alt="plant photo" />
-                <p
+                <h4 style={{display: 'inline-block'}} 
                 id={item.itemId} onClick={handleClick}>{item.name}
                 {/* update the below image to show the item's photo, resize once it shows */}
-              </p>
-              <br />
+              </h4>
+              </div>
             </div>
           );
         })}
         <Button id='button' variant="dark" onClick={back} >Back</Button>
       </section>
-
+      </div>
     </>
   );
 

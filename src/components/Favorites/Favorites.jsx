@@ -32,7 +32,7 @@ function Favorites() {
 
       //--for some reason this code below didn't work--//
   const goToItem = (event) => {
-    const itemId = event.target.id;
+    const itemId = event.target.itemId;
     console.log(itemId);
     navigate(`/items/${itemId}`)
   }
@@ -46,45 +46,23 @@ function Favorites() {
       <section className='favorites'>
         {favorites?.map((item) => {
           return (
+            <div id='favoritesList'>
+
             <div key={item.id} id={item.item_id}>
                 {/* <div id={item.item_id} onClick={goToItem} > */}
-                <Container className="mt-3">
-                <Card style={{ width: '13rem' }} className="p-3" 
-                border="success">
-                   <Card.Body>
-                <Row>
-                {/* <Col xs={6} className="border p-2">Item 1</Col>
-                <Col xs={6} className="border p-2">Item 2</Col>
-                </Row>
-                <Row>
-                <Col xs={4} className="border p-2">Item 3</Col>
-                <Col xs={4} className="border p-2">Item 4</Col>
-                <Col xs={4} className="border p-2">Item 5</Col> */}
-              
-              <Col  xs={12} className="border p-2">
+             
               <img className='favPhotos' src={item.photo} alt={item.name} />
-              </Col>
-              </Row>
-              <Row>
-              <Col  xs={12} className="border p-2">
-              <Card.Title xs={12} id={item.item_id} onClick={goToItem}> {item.name}  </Card.Title>
-              </Col>
-              </Row>
-              <Row>
+
+              <h4 id={item.item_id} onClick={goToItem}> {item.name}  </h4>
+              
               <div id='favButtons' >
-              {/* <Col  xs={4} className="border p-2"> */}
-              <img id="favHeart" src={smolHeart} onClick={() => removeFavorite(item.id)}/>
-              {/* </Col> */}
-              {/* <Col  xs={4} className="border p-2"></Col> */}
-              {/* <Col  xs={4} className="border p-2">
-              <img id="favBasket" onClick={foundForm} src={smolBasket} />
-              </Col> */}
+
+             <img id="favHeart" src={smolHeart} onClick={() => removeFavorite(item.id)}/>
+
+               {/* <img id="favBasket" onClick={foundForm} src={smolBasket} /> */}
+
               </div>
-              </Row>
-              </Card.Body>
-              </Card>
-              </Container>
-              <br />
+              </div>
             </div>
           );
         })}
