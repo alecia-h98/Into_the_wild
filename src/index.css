@@ -41,7 +41,7 @@ header, footer {
   flex-basis: 6em;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(193, 201, 175);
+  /* background-color: rgb(193, 201, 175); */
 }
 
 /* Nav Styles: */

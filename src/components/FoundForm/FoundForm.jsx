@@ -78,37 +78,41 @@ function FoundForm() {
 
   return (
     <div id='background' >
-      <h3>Welcome to the found form!</h3>
+      <h3>Welcome to the Found Form!</h3>
+      <p>Insert when and where you found the item along with a photo and description.</p>
       <section>
         <form id="form" onSubmit={formHandler}>
 
           {/* found date */}
+          <label>Found Date:</label>
           <input type="text" placeholder="Found date" value={dateInput}  onChange={(e) => setDateInput(e.target.value)} required/>
 
           {/* location */}
+          <label>Location found:</label>
           <input type="text" placeholder="Location found" value={locationInput}  onChange={(e) => setLocationInput(e.target.value)} required/>
 
+        <UploadWidget setPhotoInput={setPhotoInput}/>
+        <div className="vr" />
+
+        <br />
+        <label>Uploaded Photo:</label>
+        <input placeholder={photoInput} /> 
+        {photoInput && <img id="uploadedPhoto" src={photoInput} height={200} width={200} />}
+
+
+
           {/* Description/journal entry */}
-          <input type="text" style={{
+          <label>Description:</label>
+          <textarea type="textarea" style={{
           }} placeholder="Enter your text here.." value={descriptionInput}  onChange={(e) => setDescriptionInput(e.target.value)} required/>
-
-
           <br />
 
           {/* This line of code renders the pop up widget tool to upload their photo to cloudinary */}
          
-          <br />
 
           {/* Check to see if this actually renders the info for the public_id.. This may need to be changed */}
-          <Stack direction="horizontal" gap={3}>
-          <Form.Control className="me-auto" placeholder="Photo url.." /> {/* figure out how to put the url into this text box*/}
-          <UploadWidget setPhotoInput={setPhotoInput}/>          <div className="vr" />
-          <Button variant="danger">Reset</Button>
-          </Stack>
-          {photoInput}
-         {photoInput && <img id="uploadedPhoto" src={photoInput} height={200} width={200} />}
+
         
-          <br />
           
           <Button variant="dark" type='submit' >Submit</Button>
           <br />
