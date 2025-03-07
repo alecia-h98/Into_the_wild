@@ -7,6 +7,11 @@ import smolHeart from '/images/smol-full-like.png';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Tooltip from 'react-bootstrap/Tooltip';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+
+
 
 function Favorites() {
   const favorites = useStore((state) => state.favorites);
@@ -27,7 +32,7 @@ function Favorites() {
 
       //--for some reason this code below didn't work--//
   const goToItem = (event) => {
-    const itemId = event.target.id;
+    const itemId = event.target.itemId;
     console.log(itemId);
     navigate(`/items/${itemId}`)
   }
@@ -35,30 +40,36 @@ function Favorites() {
  
 
   return (
+    <>
     <div id='background' >
       <h1>Favorites</h1>
       <section className='favorites'>
         {favorites?.map((item) => {
           return (
+            <div id='favoritesList'>
+
             <div key={item.id} id={item.item_id}>
                 {/* <div id={item.item_id} onClick={goToItem} > */}
-                <Card border="success" >
-                  <Card.Body>
+             
               <img className='favPhotos' src={item.photo} alt={item.name} />
-              <Card.Title id={item.item_id} onClick={goToItem}> {item.name} </Card.Title>
+
+              <h4 id={item.item_id} onClick={goToItem}> {item.name}  </h4>
+              
               <div id='favButtons' >
-              <img id="favHeart" src={smolHeart} onClick={() => removeFavorite(item.id)}/>
-              <img id="favBasket" onClick={foundForm} src={smolBasket} />
+
+             <img id="favHeart" src={smolHeart} onClick={() => removeFavorite(item.id)}/>
+
+               {/* <img id="favBasket" onClick={foundForm} src={smolBasket} /> */}
+
               </div>
-              </Card.Body>
-              </Card>
-              <br />
+              </div>
             </div>
           );
         })}
       </section>
       <Button id='button' variant="dark" onClick={goHome} >Back</Button>
     </div>
+    </>
   )
 };
 

@@ -1,7 +1,7 @@
 .favPhotos{
-    height: 150px;
-    width: 150px;
-    display: inline-block;
+    height: 75px;
+    width: 75px;
+    border-radius: 25px;
 }
 #background{
     border-radius: 25px;
@@ -9,21 +9,24 @@
     padding: 20px;
 }
 
-/* #button{
-    position:absolute;
-    bottom: 110px;
-} */
-
-#favButtons{
-    justify-content: space-between;
+#favoritesList{
+    border-radius: 25px;
+    background: rgba(220, 228, 201, 0.627);
+    padding: 20px;
+    margin-bottom: 5%;
 }
 
-/* #favHeart{
+/* #favButtons{
     justify-content: space-between;
 } */
 
-#favBasket{
+#favHeart{
+    display: inline-block;
+}
 
+h4{
+    padding-left: 5%;
+    display: inline-block;
 }
 
 .listName{

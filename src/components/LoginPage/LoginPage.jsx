@@ -33,7 +33,6 @@ function LoginPage() {
     <>
       {/* <h1>Into the Wild</h1> */}
       
-      <p><b>Discover your surroundings.</b></p>
       <section id="form" >
       <Form onSubmit={handleLogIn}>
         <Row className="align-items-center" >
@@ -65,12 +64,17 @@ function LoginPage() {
         </Button>
         </Row>
       </Form>
+
+
       { // Conditionally render login error:
         errorMessage && (
           <h3>{errorMessage}</h3>
         )
       }
       </section>
+      <div>
+      <p id='discover' ><b>Discover your surroundings.</b></p>
+      </div>
     </>
   );
 }

@@ -7,7 +7,8 @@ import './SpecificItem.css';
 import basket from '/images/wicker-basket.png';
 import { useState } from "react";
 import Button from 'react-bootstrap/Button';
-
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 function SpecificItem() {
 
     //This page shows a selected plants full detail
@@ -47,6 +48,12 @@ function SpecificItem() {
       navigate(`/items/${params.itemId}/found`)
     };
 
+    const renderTooltipB = (props) => (
+      <Tooltip id="button-tooltip" {...props}>
+        Mark as found
+      </Tooltip>
+    )
+
     const goBack = () => {
       navigate(-1);
     };
@@ -75,10 +82,19 @@ function SpecificItem() {
                 <br />
                 <p><b>Common imposters:</b> {plant.imposters}</p>
                 <div>
+                  
+                  {/* <OverlayTrigger placement="top"  > */}
                   <img src={imageChanged ? "/images/big-filled-heart.png" : "/images/like.png"} alt="Toggle Image" onClick={favClick} />
+                  {/* </OverlayTrigger> */}
+
+                  <OverlayTrigger placement='top' overlay={renderTooltipB} >
                   <img onClick={formClick} src={basket} />
+                  </OverlayTrigger>
+               
                   <br />
+
                   <Button id='button' variant="dark" onClick={goBack}>Back</Button>
+
                 </div>
             </div>
           )

@@ -22,12 +22,23 @@ function Nav() {
       { // User is not logged in, render these links:
         !user.id && (
           <>
-            <li>
+          <Dropdown>
+          <Dropdown.Toggle variant="dark" id="dropdown-basic" >
+            Menu
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item>
               <NavLink to="/login">Login</NavLink>
-            </li>
-            <li>
+            </Dropdown.Item>
+            <Dropdown.Item>
               <NavLink to="/registration">Register</NavLink>
-            </li>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <NavLink to="/about">About</NavLink>
+            </Dropdown.Item>
+          </Dropdown.Menu>
+          </Dropdown>
           </>
         )
       }
@@ -56,39 +67,22 @@ function Nav() {
         <Dropdown.Item>
           <NavLink to="/tips_guidelines">Tips & Guidelines</NavLink>
         </Dropdown.Item>
+        <Dropdown.Item>
+        <NavLink to="/about">About</NavLink>
+        </Dropdown.Item>
         <Dropdown.Item onClick={logOutFunction}>
           Log Out
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
- 
-          {/* <CollapsedMenu />          
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/favorites">Favorites</NavLink>
-            </li>
-            <li>
-              <NavLink to="/found">Found Items</NavLink>
-            </li>
-            <li>
-              <NavLink to="/items">Categories</NavLink>
-            </li>
-            <li>
-              <NavLink to="/tips_guidelines">Tips & Guidelines</NavLink>
-            </li>
-            <li onClick={logOut} >
-              Log Out
-            </li> */}
+
           </>
         )
       } 
       
       {/* Show these links regardless of auth status: */}
-        {/* <li>
-          <NavLink to="/about">About</NavLink>
-        </li> */}
+        <li>
+        </li>
       </ul>
     </nav> 
   );

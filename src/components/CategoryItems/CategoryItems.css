@@ -1,6 +1,7 @@
 .tabPhoto{
-    height: 50px;
-    width: 50px;
+    height: 75px;
+    width: 75px;
+    border-radius: 25px;
 }
 
 #background{
@@ -13,8 +14,14 @@
     border-radius: 25px;
     background: rgba(220, 228, 201, 0.627);
     padding: 20px;
+    margin-bottom: 5%;
+
 }
 
 .item{
     list-style-type: none;
+}
+
+h4{
+    padding-left: 5%;
 }

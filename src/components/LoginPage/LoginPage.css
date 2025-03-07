@@ -12,8 +12,9 @@
 
 #form{
     border-radius: 25px;
-    background: rgba(220, 228, 201, 0.627);
+    background: rgb(220, 228, 201);
     padding: 20px;
+    margin-top: 30%;
     /* box-shadow: 0px 0px 15px -5px; */
     /* display: flex;
     justify-content: center; */
@@ -31,4 +32,11 @@ h2{
 }
 .align-items-center {
     align-items: center;
+}
+
+#discover{
+    border-radius: 25px;
+    background: rgba(220, 228, 201, 0.627);
+    padding: 20px;
+    margin-top: 60%;
 }

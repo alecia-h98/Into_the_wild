@@ -83,18 +83,14 @@ function FoundForm() {
         <form id="form" onSubmit={formHandler}>
 
           {/* found date */}
-          <input type="text" placeholder="Found date" value={dateInput}  onChange={(e) => setDateInput(e.target.value)}/>
+          <input type="text" placeholder="Found date" value={dateInput}  onChange={(e) => setDateInput(e.target.value)} required/>
 
           {/* location */}
-          <input type="text" placeholder="Location found" value={locationInput}  onChange={(e) => setLocationInput(e.target.value)}/>
+          <input type="text" placeholder="Location found" value={locationInput}  onChange={(e) => setLocationInput(e.target.value)} required/>
 
           {/* Description/journal entry */}
           <input type="text" style={{
-        width: '300px',
-        height: '100px',
-        fontSize: '16px',
-        padding: '10px',
-      }} placeholder="Description" value={descriptionInput}  onChange={(e) => setDescriptionInput(e.target.value)}/>
+          }} placeholder="Enter your text here.." value={descriptionInput}  onChange={(e) => setDescriptionInput(e.target.value)} required/>
 
 
           <br />
