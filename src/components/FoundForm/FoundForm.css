@@ -7,8 +7,23 @@
     border-radius: 25px;
     background: rgba(220, 228, 201, 0.82);
     padding: 20px;
+    margin-bottom: 15%;
 }
 
 #cancelButton{
     align-items: center;
+    margin-left: 70%;
+}
+
+input{
+    border-radius: 10px;
+}
+
+textarea{
+    border-radius: 10px;
+
+}
+
+#form{
+    margin-top: 0%;
 }
