@@ -7,6 +7,11 @@ import smolHeart from '/images/smol-full-like.png';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Tooltip from 'react-bootstrap/Tooltip';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+
+
 
 function Favorites() {
   const favorites = useStore((state) => state.favorites);
@@ -35,6 +40,7 @@ function Favorites() {
  
 
   return (
+    <>
     <div id='background' >
       <h1>Favorites</h1>
       <section className='favorites'>
@@ -42,16 +48,42 @@ function Favorites() {
           return (
             <div key={item.id} id={item.item_id}>
                 {/* <div id={item.item_id} onClick={goToItem} > */}
-                <Card border="success" >
-                  <Card.Body>
+                <Container className="mt-3">
+                <Card style={{ width: '13rem' }} className="p-3" 
+                border="success">
+                   <Card.Body>
+                <Row>
+                {/* <Col xs={6} className="border p-2">Item 1</Col>
+                <Col xs={6} className="border p-2">Item 2</Col>
+                </Row>
+                <Row>
+                <Col xs={4} className="border p-2">Item 3</Col>
+                <Col xs={4} className="border p-2">Item 4</Col>
+                <Col xs={4} className="border p-2">Item 5</Col> */}
+              
+              <Col  xs={12} className="border p-2">
               <img className='favPhotos' src={item.photo} alt={item.name} />
-              <Card.Title id={item.item_id} onClick={goToItem}> {item.name} </Card.Title>
+              </Col>
+              </Row>
+              <Row>
+              <Col  xs={12} className="border p-2">
+              <Card.Title xs={12} id={item.item_id} onClick={goToItem}> {item.name}  </Card.Title>
+              </Col>
+              </Row>
+              <Row>
               <div id='favButtons' >
+              {/* <Col  xs={4} className="border p-2"> */}
               <img id="favHeart" src={smolHeart} onClick={() => removeFavorite(item.id)}/>
+              {/* </Col> */}
+              {/* <Col  xs={4} className="border p-2"></Col> */}
+              {/* <Col  xs={4} className="border p-2">
               <img id="favBasket" onClick={foundForm} src={smolBasket} />
+              </Col> */}
               </div>
+              </Row>
               </Card.Body>
               </Card>
+              </Container>
               <br />
             </div>
           );
@@ -59,6 +91,7 @@ function Favorites() {
       </section>
       <Button id='button' variant="dark" onClick={goHome} >Back</Button>
     </div>
+    </>
   )
 };
 
