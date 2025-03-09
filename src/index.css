@@ -1,4 +1,9 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+
+
 /* Box-Sizing Fix: */
   /* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 *,
@@ -15,7 +20,7 @@ html, body {
 
 /* Typography: */
 body {
-  font-family: sans-serif;
+  font-family: "Josefin Slab", serif;
   background-color: #f0f0f0;
   color: rgba(0, 0, 0, 0.75);
 }

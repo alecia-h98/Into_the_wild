@@ -66,7 +66,7 @@ function CategoriesLists() {
       <section className="item">
         {categoryItems?.map((item) => {
           return (
-            <div id='backgroundList'>
+            <div  id='backgroundList'>
             <div key={item.id} id={item.id} >
                 <img className="tabPhoto" src={item.photo} alt="plant photo" />
                 <h4 style={{display: 'inline-block'}} 

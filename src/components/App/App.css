@@ -3,3 +3,7 @@
     background: rgba(220, 228, 201, 0.82);
     padding: 20px;
 }
+
+body{
+    *{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+}

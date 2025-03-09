@@ -47,17 +47,16 @@ function Favorites() {
         {favorites?.map((item) => {
           return (
             <div id='favoritesList'>
-
             <div key={item.id} id={item.item_id}>
                 {/* <div id={item.item_id} onClick={goToItem} > */}
              
               <img className='favPhotos' src={item.photo} alt={item.name} />
 
-              <h4 id={item.item_id} onClick={goToItem}> {item.name}  </h4>
+              <h4 style={{display: 'inline-block'}} id={item.item_id} onClick={goToItem}> {item.name}  </h4>
               
               <div id='favButtons' >
 
-             <img id="favHeart" src={smolHeart} onClick={() => removeFavorite(item.id)}/>
+             {/* <img id="favHeart" src={smolHeart} style={{display: 'inline-block'}} onClick={() => removeFavorite(item.id)}/> */}
 
                {/* <img id="favBasket" onClick={foundForm} src={smolBasket} /> */}
 
