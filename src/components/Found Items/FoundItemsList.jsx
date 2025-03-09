@@ -20,21 +20,26 @@ function FoundItemsList() {
     navigate('/');
   }
 
+//img info
+//height={75} width={75}
+
   return (
     <div id='background' >
       <h1>Found items</h1>
+      <section className="item">
         {foundItems?.map((item) => {
           return (
-            <div key={item.id} id={item.id}>
-             <div id='foundItemSection' >
-              <img id={item.id} onClick={handleClick} src={item.photo} alt={item.name} height={75} width={75}  />
-              <h3 id='foundTitle' >{item.name}</h3>
+            <div id='foundItemSection'>
+            <div key={item.id} id={item.id} onClick={handleClick}>
+              <img className="tabPhoto" id={item.id}  src={item.photo} alt={item.name}   />
+              <h4 style={{display: 'inline-block'}}>{item.name}</h4>
               <br />
               </div>
             </div>
           );
         })}
       <Button id='button' variant="dark" onClick={goHome} >Back</Button>
+      </section>
     </div>
   )
 };

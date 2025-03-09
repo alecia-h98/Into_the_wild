@@ -67,7 +67,7 @@ function FoundForm() {
     setDescriptionInput('');
     setPhotoInput('');
 
-    // navigate('/found');
+    navigate('/found');
   };
 
 //This function is just going back a page

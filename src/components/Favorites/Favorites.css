@@ -11,7 +11,7 @@
 
 #favoritesList{
     border-radius: 25px;
-    background: rgba(220, 228, 201, 0.627);
+    background: rgba(220, 228, 201, 0.82);
     padding: 20px;
     margin-bottom: 5%;
 }
@@ -20,13 +20,13 @@
     justify-content: space-between;
 } */
 
-#favHeart{
+/* #favHeart{
     display: inline-block;
-}
+} */
 
 h4{
     padding-left: 5%;
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 .listName{

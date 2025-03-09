@@ -1,15 +1,18 @@
-#background {
+#background{
     border-radius: 25px;
     background: rgba(220, 228, 201, 0.82);
     padding: 20px;
 }
 
-.foundItemSection{
+#foundItemSection{
     border-radius: 25px;
     background: rgba(220, 228, 201, 0.82);
     padding: 20px;
+    margin-bottom: 5%;
 }
 
-#foundTitle{
-    display:inline-block
+
+
+h4{
+    padding-left: 5%;
 }
