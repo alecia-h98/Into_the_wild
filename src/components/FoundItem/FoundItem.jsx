@@ -53,7 +53,7 @@ function FoundItem() {
                     </div>
                 )
             })}
-            <Button id='button' variant="dark" onClick={goBack} >Back</Button>
+            <Button id='backButton' variant="dark" onClick={goBack} >Back</Button>
     </div>
   )
 };
