@@ -5,8 +5,9 @@ function Archive(props) {
 
 
   return (
-    <div>
-      
+    <div id="background">
+      <h2>Archived items:</h2>
+
     </div>
   )
 };
