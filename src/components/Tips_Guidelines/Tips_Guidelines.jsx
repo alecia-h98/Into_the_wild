@@ -13,7 +13,7 @@ function Tips_Guidelines(props) {
 
   return (
     <div id='background' >
-      <h1>Tips & Guidelines</h1>
+      <h1 id='T_GTitle' >Tips & Guidelines</h1>
       <ul>
         <li>Always be 1000% sure of the plant you're foraging before eating it. Get a foraging book that goes over not only the plant itself but also it's similar imposters.</li>
         <br/>
