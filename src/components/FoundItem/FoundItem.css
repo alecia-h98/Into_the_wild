@@ -4,7 +4,8 @@
         border-radius: 25px;
         background: rgba(220, 228, 201, 0.627);
         padding: 20px;
-        align-content: center;
+        margin-left: 25%;
+        /* align-self: center; */
 }
 
 #background {
@@ -12,3 +13,14 @@
         background: rgba(220, 228, 201, 0.82);
         padding: 20px;
     }
+
+#fIHead{
+        font-size: 30px;
+        padding: 5%;
+        text-align: center;
+    }
+
+#delButton{
+        height: 50px;
+        margin-left: 80%;
+}

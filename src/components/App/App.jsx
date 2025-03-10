@@ -44,7 +44,7 @@ function App() {
   return (
     <>
       <header>
-        <h1>Into the Wild</h1>
+        <h1 id='ITW' ><b>Into the Wild</b></h1>
         <Nav />
       </header>
       <main>

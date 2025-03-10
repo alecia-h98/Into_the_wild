@@ -16,17 +16,21 @@
     margin-bottom: 5%;
 }
 
-/* #favButtons{
-    justify-content: space-between;
-} */
+#favButtons{
+    margin-left: 90%;}
 
 /* #favHeart{
     display: inline-block;
 } */
 
-h4{
-    padding-left: 5%;
-    /* display: inline-block; */
+#fHead{
+    font-size: 30px;
+    padding: 5%;
+    text-align: center;
+}
+
+p{
+    font-size: 20px;
 }
 
 .listName{

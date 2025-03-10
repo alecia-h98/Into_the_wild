@@ -42,14 +42,14 @@ function FoundItem() {
                 return(
                     <div
                     className='item' key={item.id} id={item.id}>
-                    <h1>{item.name}</h1>
+                    <h1 id='fIHead' >{item.name}</h1>
                     <img className="foundPhoto" src={item.photo} alt={item.id}/>
                     <p><b>Found on:</b> {item.found_date}</p>
                     <br />
-                    <p><b>at:</b> {item.location}</p>
+                    <p><b>At:</b> {item.location}</p>
                     <br />
                     <p><b>Your entry:</b> {item.description}</p>
-                    <img onClick={handleClick} src={trash} />
+                    <img id='delButton' onClick={handleClick} src={trash} />
                     </div>
                 )
             })}

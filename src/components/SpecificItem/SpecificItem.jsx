@@ -65,30 +65,31 @@ function SpecificItem() {
           return (
             <div key={plant.id} id={plant.id}>
                 <img className="photo" src={plant.photo} alt="plant photo"/>
-                <h2>{plant.name}</h2>
-                <p><b>Description:</b> {plant.description}</p>
+                <h2 id='sTitle' ><b>{plant.name}</b></h2>
+                <p id='sDataB' ><b id='sDescriptors'>Description:</b> {plant.description}</p>
                 <br />
-                <p><b>Most commonly found:</b> {plant.found}</p>
+                <p id='sDataB'><b id='sDescriptors' >Most commonly found:</b> {plant.found}</p>
                 <br />
-                <p><b>Best season to forage:</b> {plant.season}</p>
+                <p id='sDataB'><b id='sDescriptors'>Best season to forage:</b> {plant.season}</p>
                 <br />
-                <p><b>Common uses:</b> {plant.uses}</p>
+                <p id='sDataB'><b id='sDescriptors'>Common uses:</b> {plant.uses}</p>
                 <br />
-                <p><b>Nutritional values:</b> {plant.nutrition}</p>
+                <p id='sDataB'><b id='sDescriptors'>Nutritional values:</b> {plant.nutrition}</p>
                 <br />
-                <p><b>Shelf life:</b> {plant.shelf_life}</p>
+                <p id='sDataB'><b id='sDescriptors'>Shelf life:</b> {plant.shelf_life}</p>
                 <br />
-                <p><b>How to harvest:</b> {plant.harvesting}</p>
+                <p id='sDataB'><b id='sDescriptors'>How to harvest:</b> {plant.harvesting}</p>
                 <br />
-                <p><b>Common imposters:</b> {plant.imposters}</p>
+                <p id='sDataB'><b id='sDescriptors'>Common imposters:</b> {plant.imposters}</p>
+                <br />
                 <div>
-                  
+                
                   {/* <OverlayTrigger placement="top"  > */}
                   <img src={imageChanged ? "/images/big-filled-heart.png" : "/images/like.png"} alt="Toggle Image" onClick={favClick} />
                   {/* </OverlayTrigger> */}
 
                   <OverlayTrigger placement='top' overlay={renderTooltipB} >
-                  <img onClick={formClick} src={basket} />
+                  <img id='sBasket' onClick={formClick} src={basket} />
                   </OverlayTrigger>
                
                   <br />

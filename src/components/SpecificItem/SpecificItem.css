@@ -7,3 +7,22 @@
     background: rgba(220, 228, 201, 0.82);
     padding: 20px;
 }
+
+#sTitle{
+    text-align: center;
+    margin-top: 5%;
+    font-size: 35px;
+}
+
+#sDescriptors{
+    font-size: 20px;
+}
+
+#sDataB{
+    font-size: 20px;
+}
+
+#sBasket{
+    margin-left: 55%;
+}
+

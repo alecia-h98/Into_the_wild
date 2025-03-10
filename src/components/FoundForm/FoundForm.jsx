@@ -78,7 +78,7 @@ function FoundForm() {
 
   return (
     <div id='background' >
-      <h3>Welcome to the Found Form!</h3>
+      <h3 id='fFHead' >Found Form</h3>
       <p>Insert when and where you found the item along with a photo and description.</p>
       <section>
         <form id="form" onSubmit={formHandler}>
