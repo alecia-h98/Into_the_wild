@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import './FoundItem.css';
 import trash from '/images/bin.png';
 import Button from 'react-bootstrap/Button';
+import moment from "moment/moment";
 
 function FoundItem() {
 
@@ -44,16 +45,16 @@ function FoundItem() {
                     className='item' key={item.id} id={item.id}>
                     <h1 id='fIHead' >{item.name}</h1>
                     <img className="foundPhoto" src={item.photo} alt={item.id}/>
-                    <p><b>Found on:</b> {item.found_date}</p>
+                    <p><b>Found on:</b> {moment(item.found_date).format("MMM Do YY")}</p>
                     <br />
-                    <p><b>At:</b> {item.location}</p>
+                    <p><b>Location found:</b> {item.location}</p>
                     <br />
                     <p><b>Your entry:</b> {item.description}</p>
                     <img id='delButton' onClick={handleClick} src={trash} />
                     </div>
                 )
             })}
-            <Button id='button' variant="dark" onClick={goBack} >Back</Button>
+            <Button id='backButton' variant="dark" onClick={goBack} >Back</Button>
     </div>
   )
 };

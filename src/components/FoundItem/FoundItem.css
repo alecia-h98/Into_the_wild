@@ -5,6 +5,7 @@
         background: rgba(220, 228, 201, 0.627);
         padding: 20px;
         margin-left: 25%;
+        margin-bottom: 15%;
         /* align-self: center; */
 }
 
@@ -23,4 +24,10 @@
 #delButton{
         height: 50px;
         margin-left: 80%;
+}
+
+#backButton{
+        transform: translate(-1%, 5px);
+        width: 320px;
+        margin-top: 5%;
 }

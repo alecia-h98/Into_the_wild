@@ -34,7 +34,7 @@ function RegisterPage() {
 
   return (
     <>
-          <section id="form" >
+          <section id="Rform" >
       <Form onSubmit={handleRegister}>
       <Row className="align-items-center" >
       <Col sm={3} className="my-1"></Col>

@@ -1,10 +1,20 @@
+#background{
+    border-radius: 25px;
+    background: rgba(220, 228, 201, 0.82);
+    padding: 20px;
+}
+
 #acornPhoto{
     height: 250px;
     width: 250px;
 }
 
-#background{
-    border-radius: 25px;
-    background: rgba(220, 228, 201, 0.82);
-    padding: 20px;
+#T_GTitle{
+    font-size: 30px;
+    padding: 5%;
+    text-align: center;
+}
+
+li{
+    font-size: 20px;
 }

@@ -14,6 +14,7 @@ import Favorites from "../Favorites/Favorites";
 import CategoryItems from "../CategoryItems/CategoryItems";
 import SpecificItem from "../SpecificItem/SpecificItem";
 import FoundForm from "../FoundForm/FoundForm";
+import AdminPage from "../Admin/Admin";
 import './App.css';
 
 
@@ -87,8 +88,11 @@ function App() {
           <Route path='/categories/:categoryId' element={<CategoryItems />} />
           <Route path='/items/:itemId/found' element={<FoundForm />} />
           <Route path='/items/:itemId' element={<SpecificItem />} />
+
           {/* <Route path='/items/:itemId' element={<Archive />} /> */}
 
+          <Route path='/admin' element={<AdminPage />} />
+          {/* <Route path='/favorites/fav' element={<Favorites />} /> */}
 
           <Route
             path="/about"

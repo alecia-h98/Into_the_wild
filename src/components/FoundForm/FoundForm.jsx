@@ -85,7 +85,7 @@ function FoundForm() {
 
           {/* found date */}
           <label>Found Date:</label>
-          <input type="text" placeholder="Found date" value={dateInput}  onChange={(e) => setDateInput(e.target.value)} required/>
+          <input type="text" placeholder="MMM Do YY" value={dateInput}  onChange={(e) => setDateInput(e.target.value)} required/>
 
           {/* location */}
           <label>Location found:</label>
