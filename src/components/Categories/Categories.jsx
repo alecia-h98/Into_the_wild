@@ -30,7 +30,7 @@ console.log(categories, "This is the all categories page");
   return (
     <>
     <div id="background" >
-      <h1>Pick a category:</h1>
+      <h1 id='mcHead' >Pick a category:</h1>
       <section className='buttons'>
         {categories?.map((category) => {
           return (
@@ -51,10 +51,11 @@ console.log(categories, "This is the all categories page");
           )
         })}
       </section>
-      </div>
       <div id='backButton'>
       <Button id="button" variant="dark" onClick={goHome} >Back</Button>
     </div>
+      </div>
+
     </>
   )
 };

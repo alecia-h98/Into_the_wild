@@ -2,9 +2,10 @@
     font-family: ;
 } */
 
-h3{
+#hPTitle{
+    font-size: 30px;
+    padding: 5%;
     text-align: center;
-    /* margin-left: 15%; */
 }
 
 /* .favorites{

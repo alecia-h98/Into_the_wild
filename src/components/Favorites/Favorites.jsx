@@ -32,7 +32,7 @@ function Favorites() {
 
       //--for some reason this code below didn't work--//
   const goToItem = (event) => {
-    const itemId = event.target.itemId;
+    const itemId = event.target.id;
     console.log(itemId);
     navigate(`/items/${itemId}`)
   }
@@ -42,7 +42,8 @@ function Favorites() {
   return (
     <>
     <div id='background' >
-      <h1>Favorites</h1>
+      <h1 id='fHead'>Favorites</h1>
+      <p>Below is a list of all the plants/items you have saved as a favorite. Click on the heart to unfavorite an item.</p>
       <section className='favorites'>
         {favorites?.map((item) => {
           return (
@@ -56,7 +57,7 @@ function Favorites() {
               
               <div id='favButtons' >
 
-             {/* <img id="favHeart" src={smolHeart} style={{display: 'inline-block'}} onClick={() => removeFavorite(item.id)}/> */}
+             <img id="favHeart" src={smolHeart} style={{display: 'inline-block'}} onClick={() => removeFavorite(item.id)}/>
 
                {/* <img id="favBasket" onClick={foundForm} src={smolBasket} /> */}
 

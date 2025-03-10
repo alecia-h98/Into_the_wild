@@ -4,6 +4,14 @@
     padding: 20px;
 }
 
-body{
-    *{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+
+
+#ITW{
+    font-size: 45px;
+    margin-top: 5%;
+}
+
+#dropdown-basic{
+    margin-left: 25%;
+    margin-bottom: 10%;
 }

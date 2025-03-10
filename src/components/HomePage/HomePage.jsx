@@ -33,7 +33,7 @@ function HomePage() {
   return (
     <>
     <section id="background" >
-      <h3><b>Welcome Back {user.name}!</b></h3>
+      <h3 id='hPTitle' ><b>Welcome Back {user.name}!</b></h3>
       <br />
       <section  >
       <div className='favorites' onClick={moveFavorites} >

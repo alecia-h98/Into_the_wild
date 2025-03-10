@@ -40,19 +40,19 @@ function CategoriesLists() {
     let content;
     console.log('par', par);
     if (par==1){
-      content = <h3>Other</h3>
+      content = <h3 id='cLHead'>Other</h3>
       return content;
     } else if (par==2){
-      content = <h3>Mushrooms</h3>
+      content = <h3 id='cLHead' >Mushrooms</h3>
       return content;
     } else if (par==3){
-      content = <h3>Berrys & Fruits</h3>
+      content = <h3 id='cLHead'>Berrys & Fruits</h3>
       return content;
     } else if (par==4){
-      content = <h3>Herbs</h3>
+      content = <h3 id='cLHead'>Herbs</h3>
       return content;
     } else {
-      content = <h3>Nuts & Seeds</h3>
+      content = <h3 id='cLHead'>Nuts & Seeds</h3>
       return content;
     }
   }

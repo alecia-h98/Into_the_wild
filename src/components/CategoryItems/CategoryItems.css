@@ -18,6 +18,11 @@
 
 }
 
+#cLHead{
+    font-size: 30px;
+    padding: 5%;
+}
+
 .item{
     list-style-type: none;
 }
