@@ -34,35 +34,48 @@ function HomePage() {
     <>
     <section id="background" >
       <h3 id='hPTitle' ><b>Welcome Back {user.name}!</b></h3>
+    
+      <section >
+        <div id='1stRow'>
+        <div id='forgMM' className="grid place-items-center" onClick={moveForagable} >
+            <img src={magnifying} id="magnMM" className="w-32 h-32 object-cover"/>
+            <h5 className="text-lg font-semibold">Foragable Items</h5>
+          </div>
+          <div id='favMM' className="grid place-items-center" onClick={moveFavorites} >
+            <img src={heart} id="heartMM" className="w-32 h-32 object-cover"/>
+            <h5 className="text-lg font-semibold">Favorites</h5>
+          </div>
+          {/* <div id='foundMM' className="grid place-items-center" onClick={moveFoundItems} >
+            <img src={basket} id="baskMM" className="w-32 h-32 object-cover"/>
+            <h5 className="text-lg font-semibold">Found Items</h5>
+          </div> */}
+        </div>
+
       <br />
-      <section  >
-      <div className='favorites' onClick={moveFavorites} >
-      <img id="heart" src={heart}/>
-      <h5>Favorites</h5>
-      </div>
-      <br />
-      <div className='foundItems' onClick={moveFoundItems} >
-      <img id="basket" src={basket} />
-      <h5>Found Items</h5>
-      </div>
-      <br />
-      <div className='foragable' onClick={moveForagable} >
-      <img id="magnify" src={magnifying} />
-      <h5>Foragable Items</h5>
-      </div>
-      <br />
+
+        <div id='2ndRow' >
+        <div id='foundMM' className="grid place-items-center" onClick={moveFoundItems} >
+            <img src={basket} id="baskMM" className="w-32 h-32 object-cover"/>
+            <h5 className="text-lg font-semibold">Found Items</h5>
+          </div>
+          {/* <div id='forgMM' className="grid place-items-center" onClick={moveForagable} >
+            <img src={magnifying} id="magnMM" className="w-32 h-32 object-cover"/>
+            <h5 className="text-lg font-semibold">Foragable Items</h5>
+          </div> */}
+
+          <div id='TnGMM' className="grid place-items-center" onClick={moveTaG} >
+            <img src={lightBulb} id="lightMM" className="w-32 h-32 object-cover"/>
+            <h5 className="text-lg font-semibold">Tips & Rules</h5>
+          </div>
+        </div>
+      </section>
+
       {/* <div className='findASnack' >
       <img />
       <h5>Find-a-snack</h5>
       </div>
       <br /> */}
-      <div className='T_a_G' onClick={moveTaG} >
-      <img id="lightbulb" src={lightBulb} />
-      <h5>Tips & Guidelines</h5>
-      </div>
-      </section>
-      {/* <p>Your username is: {user .username}</p>
-      <p>Your ID is: {user.id}</p> */}
+
       <Button id='button' variant="dark" onClick={logOut}>
         Log Out
       </Button>

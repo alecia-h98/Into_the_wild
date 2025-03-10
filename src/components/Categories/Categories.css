@@ -9,3 +9,8 @@
     padding: 5%;
     text-align: center;
 }
+
+#cat{
+    display: inline-block;
+    margin: 5%;
+}
