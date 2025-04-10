@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react';
 
 
 export default defineConfig(() => {
+
+
+  
   return {
     build: {
       outDir: 'build',
@@ -13,5 +16,9 @@ export default defineConfig(() => {
       }
     },
     plugins: [react()],
+    test: {
+      globals: true,
+      environment: 'jsdom',
+    },
   };
 });
