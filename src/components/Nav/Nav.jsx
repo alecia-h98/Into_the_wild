@@ -71,9 +71,15 @@ function Nav() {
         <NavLink to="/about">About</NavLink>
         </Dropdown.Item>
         {user?.is_admin && (
+              <>
                 <Dropdown.Item>
-                  <NavLink className="nav-link" to="/admin" onClick={() => setExpanded(false)}>Admin</NavLink>
+                  {/* Possibly add this below in the NavLink..? onClick={() => setExpanded(false)} */}
+                  <NavLink className="nav-link" to="/admin">Admin</NavLink> 
                 </Dropdown.Item>
+                {/* <Dropdown.Item>
+                  <NavLink to="/addPlant" >Add plant</NavLink>
+                </Dropdown.Item> */}
+              </>
         )}
         <Dropdown.Item onClick={logOutFunction}>
           Log Out
