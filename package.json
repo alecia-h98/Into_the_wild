@@ -31,12 +31,13 @@
   },
   "scripts": {
     "start": "node server/server.js",
-    "client": "vite --host",
+    "client": "vite",
     "server": "nodemon --watch server server/server.js",
     "build": "vite build",
     "test": "vitest"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.7.10",
     "@testing-library/react": "^16.2.0",
     "@vitejs/plugin-react": "^4.3.4",
     "express": "^4.21.2",
