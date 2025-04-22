@@ -19,12 +19,14 @@ import './App.css';
 
 
 
+
 function App() {
   const user = useStore((state) => state.user);
   const fetchUser = useStore((state) => state.fetchUser);
   const fetchFoundItems = useStore((state) => state.fetchFoundItems);
   const fetchCategories = useStore((state) => state.fetchCategories);
   const fetchFavorites = useStore((state) => state.fetchFavorites);
+  const fetchAllUsers = useStore((state) => state.fetchAllUsers);
   
   const favorites = useStore((state) => state.favorites)
 
@@ -35,7 +37,8 @@ function App() {
     fetchFoundItems();
     fetchCategories();
     fetchFavorites();
-  }, [fetchUser, fetchFoundItems, fetchCategories, fetchFavorites, user.id]);
+    fetchAllUsers();
+  }, [fetchUser, fetchFoundItems, fetchCategories, fetchFavorites, user.id, fetchAllUsers]);
   console.log('fetching user', user);
   console.log('fetching favorites', favorites);
 
